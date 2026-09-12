@@ -43,8 +43,8 @@
       <span class="year">Lookbook 2026</span>
     </a>
     <div class="hdr-right">
-      <div class="counter" id="counter">01 / 42</div>
-      <a class="dl-btn" href="madhuri_furniture_catalogue_2026.pdf" download="Madhuri_Furniture_Catalogue_2026.pdf" title="Download Complete 2026 Mastercraft PDF Catalogue">
+      <div class="counter" id="counter">01 / 58</div>
+      <a class="dl-btn" id="headerDlBtn" href="madhuri_furniture_catalogue_2026.pdf" download="Madhuri_Furniture_Complete_Catalogue_2026.pdf" title="Download PDF Catalogue">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
         </svg>
@@ -86,10 +86,10 @@
 
   <!-- Closing Section -->
   <section class="closing">
-    <h2 class="mark">That's the <em>whole edit.</em></h2>
-    <p>Fifty-eight handcrafted masterworks, carved with patience, sacred geometry, and multi-generational Indian artisanal skill.</p>
+    <h2 class="mark" id="closingMark">That's the <em>whole edit.</em></h2>
+    <p id="closingSub">Fifty-eight handcrafted masterworks, carved with patience, sacred geometry, and multi-generational Indian artisanal skill.</p>
     <div class="closing-actions">
-      <a class="btn gold" href="madhuri_furniture_catalogue_2026.pdf" download="Madhuri_Furniture_Catalogue_2026.pdf">
+      <a class="btn gold" id="closingDlBtn" href="madhuri_furniture_catalogue_2026.pdf" download="Madhuri_Furniture_Complete_Catalogue_2026.pdf">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
         </svg>
@@ -136,6 +136,72 @@
     const railDot = document.getElementById('railDot');
     const metaCount = document.getElementById('metaCount');
     const filterTabs = document.querySelectorAll('.lookbook-tab');
+    const headerDlBtn = document.getElementById('headerDlBtn');
+    const closingDlBtn = document.getElementById('closingDlBtn');
+    const closingMark = document.getElementById('closingMark');
+    const closingSub = document.getElementById('closingSub');
+
+    const CATEGORY_PDF_CONFIG = {
+      all: {
+        file: 'madhuri_furniture_catalogue_2026.pdf',
+        downloadName: 'Madhuri_Furniture_Complete_Catalogue_2026.pdf',
+        headerLabel: 'Download PDF',
+        closingLabel: 'Download Full PDF (58 Items)',
+        title: 'Download Complete 2026 Mastercraft PDF Catalogue (58 Masterpieces)',
+        markHtml: "That's the <em>whole edit.</em>",
+        subText: "Fifty-eight handcrafted masterworks, carved with patience, sacred geometry, and multi-generational Indian artisanal skill."
+      },
+      deities: {
+        file: 'madhuri_catalogue_wooden_deities_2026.pdf',
+        downloadName: 'Madhuri_Furniture_Wooden_Deities_Catalogue_2026.pdf',
+        headerLabel: 'Download Deities PDF',
+        closingLabel: 'Download Deities PDF (40 Items)',
+        title: 'Download Dedicated Wooden Deities PDF Catalogue (40 Masterpieces)',
+        markHtml: "That's the <em>wooden deities collection.</em>",
+        subText: "Forty handcrafted sacred masterworks — Lord Ganesha, Balaji, Adiyogi Shiva, Hanuman, Buddha & Ram Darbar."
+      },
+      nature: {
+        file: 'madhuri_catalogue_natures_collection_2026.pdf',
+        downloadName: 'Madhuri_Furniture_Natures_Collection_Catalogue_2026.pdf',
+        headerLabel: 'Download Nature PDF',
+        closingLabel: 'Download Nature PDF (16 Items)',
+        title: "Download Dedicated Nature's Collection PDF Catalogue (16 Masterpieces)",
+        markHtml: "That's the <em>nature's collection.</em>",
+        subText: "Sixteen wildlife and animal relief masterworks — 7 Running Horses, Royal Bull, Elephants & Imperial Tigers."
+      },
+      collectibles: {
+        file: 'madhuri_catalogue_collectibles_2026.pdf',
+        downloadName: 'Madhuri_Furniture_Collectibles_Catalogue_2026.pdf',
+        headerLabel: 'Download Collectibles PDF',
+        closingLabel: 'Download Collectibles PDF (2 Items)',
+        title: 'Download Dedicated Collectibles PDF Catalogue (2 Masterpieces)',
+        markHtml: "That's the <em>collectibles edit.</em>",
+        subText: "Historic statecraft insignia — Sarnath Ashoka Stambh Four-Lion Capital in seasoned teakwood."
+      }
+    };
+
+    function updateDownloadButtons(cat) {
+      const config = CATEGORY_PDF_CONFIG[cat] || CATEGORY_PDF_CONFIG.all;
+      if (headerDlBtn) {
+        headerDlBtn.href = config.file;
+        headerDlBtn.download = config.downloadName;
+        headerDlBtn.title = config.title;
+        const span = headerDlBtn.querySelector('span');
+        if (span) span.textContent = config.headerLabel;
+      }
+      if (closingDlBtn) {
+        closingDlBtn.href = config.file;
+        closingDlBtn.download = config.downloadName;
+        const span = closingDlBtn.querySelector('span');
+        if (span) span.textContent = config.closingLabel;
+      }
+      if (closingMark) {
+        closingMark.innerHTML = config.markHtml;
+      }
+      if (closingSub) {
+        closingSub.textContent = config.subText;
+      }
+    }
 
     // Initialize Lookbook
     document.addEventListener('DOMContentLoaded', () => {
@@ -195,6 +261,8 @@
 
     function renderLookbook() {
       if (typeof CATALOG_DATA === 'undefined') return;
+
+      updateDownloadButtons(activeCategory);
 
       currentItems = activeCategory === 'all' 
         ? CATALOG_DATA 

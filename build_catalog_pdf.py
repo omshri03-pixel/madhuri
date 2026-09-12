@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import subprocess
 from PIL import Image, ImageDraw, ImageFont
 
 # Page dimensions: A4 at 150 DPI = 1240 x 1754 px
@@ -14,8 +15,6 @@ C_GOLD = (217, 173, 109)
 C_GOLD_BRIGHT = (235, 195, 135)
 C_IVORY = (246, 241, 231)
 C_IVORY_DIM = (200, 192, 180)
-C_LINE = (217, 173, 109, 60)
-C_DARK_LINE = (45, 36, 28)
 
 # Fonts
 FONT_TITLE = ImageFont.truetype("C:/Windows/Fonts/georgia.ttf", 46)
@@ -32,11 +31,30 @@ def draw_gold_border(draw):
     # Inner border
     draw.rectangle([margin + 8, margin + 8, PAGE_W - margin - 8, PAGE_H - margin - 8], outline=(217, 173, 109), width=2)
     # Corner ornaments
-    cw = 24
     for x, y in [(margin, margin), (PAGE_W - margin, margin), (margin, PAGE_H - margin), (PAGE_W - margin, PAGE_H - margin)]:
         draw.rectangle([x - 4, y - 4, x + 4, y + 4], fill=C_GOLD)
 
-def create_cover_page():
+def StringPad(n):
+    return str(n).zfill(2)
+
+def wrap_text(text, max_chars):
+    words = text.split()
+    lines = []
+    cur = []
+    cur_len = 0
+    for w in words:
+        if cur_len + len(w) + 1 <= max_chars:
+            cur.append(w)
+            cur_len += len(w) + 1
+        else:
+            lines.append(" ".join(cur))
+            cur = [w]
+            cur_len = len(w)
+    if cur:
+        lines.append(" ".join(cur))
+    return lines
+
+def create_cover_page(cat_key, cat_title, count):
     img = Image.new('RGB', (PAGE_W, PAGE_H), color=C_BG)
     draw = ImageDraw.Draw(img)
     draw_gold_border(draw)
@@ -68,41 +86,79 @@ def create_cover_page():
     # Divider line
     draw.line([(PAGE_W // 2 - 180, 650), (PAGE_W // 2 + 180, 650)], fill=C_GOLD, width=2)
 
-    # Hero title
-    t1 = "THE MASTERCRAFT LOOKBOOK"
+    # Hero title per category
+    if cat_key == 'deities':
+        t1 = "PREMIUM WOODEN DEITIES"
+        t2 = f"{count} SACRED DEVOTIONAL MASTERPIECES · 2026"
+        intro_lines = [
+            "SACRED SOLID TEAKWOOD & DEVOTIONAL SCULPTURES",
+            "",
+            "· Lord Ganesha, Balaji Tirupati, Adiyogi Shiva & Panchmukhi Hanuman",
+            "· Ram Darbar, Radha Krishna, Saraswati, Gayatri & Meditating Buddha",
+            "· Sanctified temple architecture high-reliefs with sacred Vedic geometry",
+            "",
+            "Hand-chiseled by Multi-Generational Master Wood Artisans of India"
+        ]
+    elif cat_key == 'nature':
+        t1 = "NATURE'S MASTER COLLECTION"
+        t2 = f"{count} HERITAGE WILDLIFE & ANIMAL RELIEFS · 2026"
+        intro_lines = [
+            "IMPERIAL INDIAN WILDLIFE & BOTANICAL RELIEF SCULPTURES",
+            "",
+            "· 7 Running Vastu Horses, Royal Majestic Bull & Imperial Tusker Elephants",
+            "· Lion Head Architectural Consoles, Royal Bengal Tigers & Divine Kamadhenu",
+            "· Dynamic motion carvings chiseled from single solid slabs of Indian Teak",
+            "",
+            "Hand-carved in Saharanpur, Uttar Pradesh — City of Woodcraft"
+        ]
+    elif cat_key == 'collectibles':
+        t1 = "NATIONAL HERITAGE COLLECTIBLES"
+        t2 = f"{count} HISTORIC EMBLEMS & ARCHITECTURAL RELIEFS · 2026"
+        intro_lines = [
+            "TIMELESS ARCHIVAL INSIGNIAS OF INDIAN STATECRAFT",
+            "",
+            "· Sarnath Ashoka Stambh Four-Lion Capital with Ashoka Chakra",
+            "· Sacred Presidential & Supreme Judiciary Chamber Wall Emblems",
+            "· Collector-grade teakwood preservation of historic Indian heritage",
+            "",
+            "Fashioned with precision, proportion and timeless dignity"
+        ]
+    else: # 'all'
+        t1 = "THE MASTERCRAFT LOOKBOOK"
+        t2 = f"COMPLETE ARCHIVAL COLLECTION ({count} MASTERPIECES) · 2026"
+        intro_lines = [
+            "CURATED SOLID TEAKWOOD & SACRED BOXWOOD CREATIONS",
+            "",
+            "· 40 Masterpiece Deities: Adiyogi Shiva, Panchmukhi Hanuman, Balaji & Ganesha",
+            "· 16 Nature's Sculptures: 7 Running Horses, Wild Elephants & Imperial Reliefs",
+            "· National Heritage Collectibles: Ashoka Stambh Lion Capital & Sacred Symbols",
+            "",
+            "Fashioned by Multi-Generational Master Artisans of Saharanpur, India"
+        ]
+
     bbox = draw.textbbox((0, 0), t1, font=FONT_HEADING)
     draw.text(((PAGE_W - (bbox[2] - bbox[0])) // 2, 740), t1, font=FONT_HEADING, fill=C_IVORY)
 
-    t2 = "2026 ARCHIVAL COLLECTION"
     bbox = draw.textbbox((0, 0), t2, font=FONT_SUB)
     draw.text(((PAGE_W - (bbox[2] - bbox[0])) // 2, 790), t2, font=FONT_SUB, fill=C_GOLD)
 
     # Collection Highlights Box
-    box_w = 880
+    box_w = 900
     box_h = 360
     box_x = (PAGE_W - box_w) // 2
     box_y = 890
     draw.rectangle([box_x, box_y, box_x + box_w, box_y + box_h], fill=C_CARD_BG, outline=C_GOLD, width=1)
 
-    intro_lines = [
-        "CURATED SOLID TEAKWOOD & SACRED BOXWOOD CREATIONS",
-        "",
-        "· 40 Masterpiece Deities: Adiyogi Shiva, Panchmukhi Hanuman, Balaji & Ganesha",
-        "· 16 Nature's Sculptures: 7 Running Horses, Wild Elephants & Imperial Tiger Reliefs",
-        "· National Heritage Collectibles: Ashoka Stambh Lion Capital & Sacred Symbols",
-        "",
-        "Fashioned by Multi-Generational Master Artisans of Saharanpur, India"
-    ]
     cur_y = box_y + 40
     for line in intro_lines:
-        font_to_use = FONT_SUB if "CURATED" in line else FONT_BODY
-        color_to_use = C_GOLD_BRIGHT if "CURATED" in line else C_IVORY_DIM
+        font_to_use = FONT_SUB if ("CURATED" in line or "SACRED" in line or "IMPERIAL" in line or "TIMELESS" in line) else FONT_BODY
+        color_to_use = C_GOLD_BRIGHT if ("CURATED" in line or "SACRED" in line or "IMPERIAL" in line or "TIMELESS" in line) else C_IVORY_DIM
         bbox = draw.textbbox((0, 0), line, font=font_to_use)
         draw.text(((PAGE_W - (bbox[2] - bbox[0])) // 2, cur_y), line, font=font_to_use, fill=color_to_use)
         cur_y += 38
 
     # Contact footer on cover
-    footer_text = "Official Inquiries: WhatsApp +91 9627606000  ·  Etsy: madhurihandicraft.etsy.com"
+    footer_text = "Direct Artisan Desk: WhatsApp +91 9627606000  ·  Etsy: madhurihandicraft.etsy.com"
     bbox = draw.textbbox((0, 0), footer_text, font=FONT_BODY)
     draw.text(((PAGE_W - (bbox[2] - bbox[0])) // 2, 1600), footer_text, font=FONT_BODY, fill=C_GOLD)
 
@@ -112,13 +168,13 @@ def create_cover_page():
 
     return img
 
-def create_product_page(item, page_idx, total_pages):
+def create_product_page(item, page_idx, total_pages, category_title="THE MASTERCRAFT EDIT 2026"):
     img = Image.new('RGB', (PAGE_W, PAGE_H), color=C_BG)
     draw = ImageDraw.Draw(img)
     draw_gold_border(draw)
 
     # Header in plate
-    header_str = "MADHURI FURNITURE  ·  THE MASTERCRAFT EDIT 2026"
+    header_str = f"MADHURI FURNITURE  ·  {category_title.upper()}"
     draw.text((70, 60), header_str, font=FONT_SMALL, fill=C_GOLD)
     
     cat_str = item.get("collection", "Handcrafted Masterpiece").upper()
@@ -128,22 +184,18 @@ def create_product_page(item, page_idx, total_pages):
     draw.line([(70, 85), (PAGE_W - 70, 85)], fill=(70, 56, 40), width=1)
 
     # Artwork image container
-    # Image frame: 1040 wide x 1120 high
     frame_w = 1040
     frame_h = 1120
     frame_x = (PAGE_W - frame_w) // 2
     frame_y = 110
 
-    # Load and fit image
     item_img_path = item.get("image", "")
     if os.path.exists(item_img_path):
         try:
             prod_img = Image.open(item_img_path).convert("RGB")
-            # Aspect ratio fit within frame
             prod_img.thumbnail((frame_w, frame_h), Image.Resampling.LANCZOS)
             px = frame_x + (frame_w - prod_img.width) // 2
             py = frame_y + (frame_h - prod_img.height) // 2
-            # Drop shadow
             draw.rectangle([px - 4, py - 4, px + prod_img.width + 4, py + prod_img.height + 4], outline=C_GOLD, width=1)
             img.paste(prod_img, (px, py))
         except Exception as e:
@@ -185,7 +237,7 @@ def create_product_page(item, page_idx, total_pages):
 
     return img
 
-def create_back_cover():
+def create_back_cover(cat_title):
     img = Image.new('RGB', (PAGE_W, PAGE_H), color=C_BG)
     draw = ImageDraw.Draw(img)
     draw_gold_border(draw)
@@ -220,9 +272,9 @@ def create_back_cover():
     closing_text = [
         "CERTIFICATE OF ARTISANAL INTEGRITY",
         "",
-        "Every creation in this lookbook is hand-chiseled from legally sourced,",
-        "seasoned Indian Teakwood and Sacred Boxwood by master craftsmen",
-        "carrying forward ancestral woodcraft heritage.",
+        f"Every creation in this {cat_title} catalogue is hand-chiseled",
+        "from legally sourced, seasoned Indian Teakwood and Sacred Boxwood",
+        "by master craftsmen carrying forward ancestral woodcraft heritage.",
         "",
         "DIRECT ARTISAN DESK & GLOBAL COMMISSIONS",
         "Phone / WhatsApp: +91 9627606000",
@@ -247,70 +299,55 @@ def create_back_cover():
 
     return img
 
-def StringPad(n):
-    return str(n).zfill(2)
-
-def wrap_text(text, max_chars):
-    words = text.split()
-    lines = []
-    cur = []
-    cur_len = 0
-    for w in words:
-        if cur_len + len(w) + 1 <= max_chars:
-            cur.append(w)
-            cur_len += len(w) + 1
-        else:
-            lines.append(" ".join(cur))
-            cur = [w]
-            cur_len = len(w)
-    if cur:
-        lines.append(" ".join(cur))
-    return lines
-
-def main():
-    # Read catalog items from catalog-data.js
-    with open("js/catalog-data.js", "r", encoding="utf-8") as f:
-        content = f.read()
-
-    # Extract CATALOG_DATA using regex
-    m = re.search(r"const CATALOG_DATA = (\[.*?\]);", content, re.DOTALL)
-    if not m:
-        print("Could not find CATALOG_DATA in catalog-data.js")
-        return
-
-    # Basic JSON sanitize for JS object literal
-    raw_js = m.group(1)
-    # convert unquoted keys or trailing commas if needed
-    # Better: execute node to export JSON!
-    import subprocess
-    cmd = 'node -e "const fs = require(\'fs\'); const code = fs.readFileSync(\'js/catalog-data.js\', \'utf8\'); eval(code.replace(\'const HUB_COLLECTIONS\', \'var HUB_COLLECTIONS\').replace(\'const CATALOG_DATA\', \'var CATALOG_DATA\')); console.log(JSON.stringify(CATALOG_DATA));"'
-    res = subprocess.run(cmd, shell=True, capture_output=True, text=True, encoding="utf-8")
-    items = json.loads(res.stdout)
-    print(f"Loaded {len(items)} items for catalogue generation.")
-
+def build_pdf_for_items(items, cat_key, cat_title, filename):
+    print(f"\n--- Generating PDF: {filename} ({len(items)} items) ---")
     pages = []
-    print("Generating Cover Page...")
-    pages.append(create_cover_page())
-
+    
+    # 1. Cover
+    pages.append(create_cover_page(cat_key, cat_title, len(items)))
+    
+    # 2. Product Plates
     total = len(items)
     for i, item in enumerate(items):
-        print(f"Generating Plate {i+1}/{total}: {item.get('title')[:30]}...")
-        pages.append(create_product_page(item, i + 1, total))
-
-    print("Generating Back Cover Page...")
-    pages.append(create_back_cover())
-
-    # Save multi-page PDF
-    pdf_path = "madhuri_furniture_catalogue_2026.pdf"
-    print(f"Saving PDF to {pdf_path} (Total {len(pages)} pages)...")
+        pages.append(create_product_page(item, i + 1, total, cat_title))
+        
+    # 3. Back Cover
+    pages.append(create_back_cover(cat_title))
+    
+    # Save PDF
+    print(f"Saving to {filename} ({len(pages)} pages)...")
     pages[0].save(
-        pdf_path,
+        filename,
         save_all=True,
         append_images=pages[1:],
         resolution=150.0,
-        quality=92
+        quality=90
     )
-    print("PDF generation complete! File size:", os.path.getsize(pdf_path), "bytes")
+    size_mb = os.path.getsize(filename) / (1024 * 1024)
+    print(f"Done! {filename}: {size_mb:.2f} MB")
+
+def main():
+    cmd = 'node -e "const fs = require(\'fs\'); const code = fs.readFileSync(\'js/catalog-data.js\', \'utf8\'); eval(code.replace(\'const HUB_COLLECTIONS\', \'var HUB_COLLECTIONS\').replace(\'const CATALOG_DATA\', \'var CATALOG_DATA\')); console.log(JSON.stringify(CATALOG_DATA));"'
+    res = subprocess.run(cmd, shell=True, capture_output=True, text=True, encoding="utf-8")
+    all_items = json.loads(res.stdout)
+    
+    deities_items = [i for i in all_items if i.get('category') == 'deities']
+    nature_items = [i for i in all_items if i.get('category') == 'nature']
+    collectibles_items = [i for i in all_items if i.get('category') == 'collectibles']
+    
+    print(f"Total: {len(all_items)} | Deities: {len(deities_items)} | Nature: {len(nature_items)} | Collectibles: {len(collectibles_items)}")
+    
+    # 1. Wooden Deities Specific PDF (40 items)
+    build_pdf_for_items(deities_items, 'deities', "Wooden Deities", "madhuri_catalogue_wooden_deities_2026.pdf")
+
+    # 2. Nature's Collection Specific PDF (16 items)
+    build_pdf_for_items(nature_items, 'nature', "Nature's Collection", "madhuri_catalogue_natures_collection_2026.pdf")
+
+    # 3. Collectibles Specific PDF (2 items)
+    build_pdf_for_items(collectibles_items, 'collectibles', "Collectibles", "madhuri_catalogue_collectibles_2026.pdf")
+
+    # 4. Complete Mastercraft PDF (58 items)
+    build_pdf_for_items(all_items, 'all', "The Mastercraft Edit", "madhuri_furniture_catalogue_2026.pdf")
 
 if __name__ == "__main__":
     main()
