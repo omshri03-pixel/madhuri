@@ -1,21 +1,19 @@
-# Madhuri Furniture — Ultra-Luxury Digital Catalogue & Brand Hub
+# Madhuri Furniture — Ultra-Luxury Digital Catalogue & Mastercraft Lookbook
 
-Official website and digital lookbook platform for **Madhuri Furniture** (Est. 1983).
+Official brand website and digital lookbook platform for **Madhuri Furniture / Handicrafts** (Est. 1983, Saharanpur, India).
 
 ## 🌟 Highlights
-- **Liquid Glassmorphism Hub (`index.html`)**: Dynamic ambient lighting orbs, frosted glass tiles, interactive micro-animations.
-- **The Signature Edit 2026 (`signature.html`)**: Editorial product catalog with print/PDF export support.
-- **The Heritage Edit (`heritage.html`)**: Sacred woodcraft lookbook featuring hand-carved teak deities and temple panels.
+- **Liquid Glassmorphism Hub (`index.html`)**: Dynamic ambient lighting orbs, frosted glass tiles, official Google Business Profile integration, and interactive micro-animations.
+- **The Mastercraft Lookbook (`catalog.html`)**: 58-item full-page cinematic editorial spreads inspired by luxury catalogues, progress rail tracking, category filtering, and direct WhatsApp inquiry.
+- **Complete 60-Page PDF Catalogue (`madhuri_furniture_catalogue_2026.pdf`)**: Downloadable high-resolution archival catalogue with full plate details and artisanal certificates.
+- **Ultra-Luxury Floating WhatsApp Widget**: Real official WhatsApp vector badge, live status indicator, and direct communication with master artisans.
 - **Complete Omnichannel Integration**:
+  - Etsy: Global Storefront (`madhurihandicraft.etsy.com`)
+  - Google Business: Verified Profile & Location
+  - WhatsApp: Direct Order & Commission Enquiry (+91 9627606000)
   - Instagram: `@madhurihandicrafts`
   - YouTube: `@madhurihandicrafts`
   - Facebook: Official Page
-  - Google: Verified Profile, Location & Reviews
-  - WhatsApp: Direct Order & Commission Enquiry
-  - Etsy: Global Storefront (`madhurihandicraft.etsy.com`)
 
-## 🚀 Deploying to Vercel
-1. Import this repository into your [Vercel Dashboard](https://vercel.com/new).
-2. Framework Preset: **Other** (Pure HTML/CSS/JS static site).
-3. Root Directory: `./`
-4. Click **Deploy**.
+## 🚀 Deploying
+This project is pure vanilla HTML/CSS/JavaScript with static assets and can be deployed instantly to Netlify, Vercel, or GitHub Pages.

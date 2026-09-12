@@ -3,269 +3,440 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>MADHURI FURNITURES — Authentic Premium Indian Furniture</title>
-  <meta name="description" content="MADHURI FURNITURES — Premium hand-carved teak wood wall art, religious panels, and Indian heritage decor. Shop our curated 2026 collection on Etsy with worldwide delivery.">
-  <link rel="icon" href="favicon.png" type="image/png">
-  <meta name="theme-color" content="#070605">
+  <title>MADHURI HANDICRAFTS — Timeless Indian Brass, Wood & Spiritual Artistry</title>
+  <meta name="description" content="Madhuri Handicrafts — Curated 2026 Collection of Handcrafted Brass Idols, Antique Urulis, Teakwood Jharokhas, and Sacred Temple Decor. Available on Etsy, Instagram, and Worldwide.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0c0b09">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="MADHURI FURNITURES">
+  <meta name="apple-mobile-web-app-title" content="Madhuri Handicrafts">
 
-  <!-- Preload hero images -->
-  <link rel="preload" as="image" href="images/hero_collection.jpg">
-  <link rel="preload" as="image" href="images/product_ganesha.jpg">
+  <!-- Preload Critical Hero Imagery -->
+  <link rel="preload" as="image" href="images/brass_heritage.jpg">
+  <link rel="preload" as="image" href="images/wooden_craft.jpg">
+  <link rel="preload" as="image" href="images/festive_spiritual.jpg">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Fraunces, Cinzel, Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,200;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-  <!-- Ambient Liquid Orbs -->
-  <div class="liquid-bg" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="orb orb-4"></div>
-  </div>
-
-  <!-- Film Grain -->
+  <!-- Atmospheric Film Grain Layer -->
   <div class="grain" aria-hidden="true"></div>
 
-  <!-- Main Hub -->
+  <!-- Ambient Liquid Glass Mesh Light Orbs -->
+  <div class="liquid-ambient-canvas" aria-hidden="true">
+    <div class="liquid-orb orb-gold-top"></div>
+    <div class="liquid-orb orb-amber-right"></div>
+    <div class="liquid-orb orb-sapphire-left"></div>
+    <div class="liquid-orb orb-bronze-center"></div>
+  </div>
+
+  <!-- Main Digital Brand Hub -->
   <div class="hub">
 
-    <!-- ── HEADER ─────────────────────────────────── -->
-    <header class="hub-header">
-      <div class="logo-wrap">
-        <img src="images/logo.png" alt="MADHURI FURNITURE — Since 1983" class="brand-logo-hd">
+    <!-- Top Status Bar -->
+    <header class="hub-topbar">
+      <div class="topbar-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>Master Artisans · India</span>
       </div>
-
-      <h1 class="hub-wordmark">MADHURI FURNITURE</h1>
-      <div class="hub-tagline">Where Style Meets Craftsmanship · Since 1983</div>
+      <div class="topbar-actions">
+        <button class="topbar-btn" id="shareHubBtn" title="Share Digital Catalog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          <span>Share Hub</span>
+        </button>
+      </div>
     </header>
 
-    <!-- ── TILES ──────────────────────────────────── -->
-    <div class="tiles">
+    <!-- Hub Main Header -->
+    <section class="hub-header">
+      <div class="hub-brand-crest-wrap">
+        <img class="hub-brand-crest" src="images/madhuri_crest.png" alt="Madhuri Furniture Crest">
+      </div>
+      <div class="hub-header-text">
+        <h1 class="wordmark">MADHURI FURNITURE</h1>
+        <div class="tagline">WHERE STYLE MEETS CRAFTSMANSHIP · SINCE 1983</div>
+      </div>
+    </section>
 
-      <!-- Tile 1: The Signature Edit (Catalog) -->
-      <a class="tile" href="signature.html" id="tile-signature" title="Open The Signature Edit 2026 Catalogue">
-        <div class="tile-bg" style="background-image: url('images/hero_collection.jpg');"></div>
+    <!-- Unified 2-Column Cards Showcase Grid -->
+    <main class="hub-cards-grid">
+
+      <!-- Card 1: Category 1 - Premium Wooden Deities -->
+      <a class="tile" href="catalog.html?category=deities" title="View Premium Wooden Deities Collection (40 Masterpieces)">
+        <div class="tile-img" data-full="images/hero_deities.jpg"></div>
         <div class="tile-scrim"></div>
         <div class="tile-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </div>
         <div class="tile-content">
-          <span class="tile-eyebrow">Product Catalogue</span>
-          <h2 class="tile-title">The <em>Signature</em> Edit</h2>
-          <span class="tile-sub">2026 Collection · Wood Carvings · PDF Download</span>
+          <span class="tile-kicker">« 40 MASTERPIECES »</span>
+          <h2 class="tile-title">Premium <em>Wooden Deities</em></h2>
+          <span class="tile-meta">Ganesha · Adiyogi Shiva · Buddha · Ram Darbar</span>
         </div>
       </a>
 
-      <!-- Tile 2: The Heritage Edit (Lookbook) -->
-      <a class="tile" href="heritage.html" id="tile-heritage" title="Open The Heritage Edit Lookbook">
-        <div class="tile-bg" style="background-image: url('images/product_ganesha.jpg');"></div>
+      <!-- Card 2: Category 2 - Nature's Collection -->
+      <a class="tile" href="catalog.html?category=nature" title="View Nature's Collection (16 Masterpieces)">
+        <div class="tile-img" data-full="images/hero_nature.jpg"></div>
         <div class="tile-scrim"></div>
         <div class="tile-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </div>
         <div class="tile-content">
-          <span class="tile-eyebrow">Sacred & Spiritual</span>
-          <h2 class="tile-title">The <em>Heritage</em> Edit</h2>
-          <span class="tile-sub">Deities · Mandirs · Wall Panels · PDF Download</span>
+          <span class="tile-kicker">« 16 MASTERPIECES »</span>
+          <h2 class="tile-title">Nature's <em>Collection</em></h2>
+          <span class="tile-meta">Royal Bull · Elephants · Kamadhenu · Owls</span>
         </div>
       </a>
 
-      <!-- Tile 3: Instagram -->
-      <a class="tile tile-instagram" href="https://www.instagram.com/madhurihandicrafts?igsh=MTExb3ZwZnlpY2J1bA==" target="_blank" rel="noopener noreferrer" id="tile-instagram" title="Follow MADHURI FURNITURES on Instagram">
+      <!-- Card 3: Category 3 - Collectibles (Full Width Span) -->
+      <a class="tile full-width-span" href="catalog.html?category=collectibles" title="View Collectibles (2 Masterpieces)">
+        <div class="tile-img" data-full="images/hero_collectibles.jpg"></div>
         <div class="tile-scrim"></div>
         <div class="tile-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </div>
         <div class="tile-content">
-          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.7">
-            <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/>
-            <circle cx="12" cy="12" r="4.5"/>
-            <circle cx="17.3" cy="6.7" r="1.2" fill="rgba(255,255,255,0.9)" stroke="none"/>
-          </svg>
-          <span class="tile-eyebrow">Follow along</span>
+          <span class="tile-kicker">« 2 MASTERPIECES »</span>
+          <h2 class="tile-title"><em>Collectibles</em></h2>
+          <span class="tile-meta">Ashoka Stambh · Lion Capital · Sacred Emblems</span>
+        </div>
+      </a>
+
+      <!-- Card 4: Instagram -->
+      <a class="tile instagram" href="https://www.instagram.com/madhurihandicrafts?igsh=MTExb3ZwZnlpY2J1bA==" target="_blank" rel="noopener" title="Follow Madhuri Handicrafts on Instagram">
+        <div class="tile-scrim"></div>
+        <div class="tile-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </div>
+        <div class="tile-content">
+          <svg class="social-tile-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.2" cy="6.8" r="1.1" fill="#fff" stroke="none"/></svg>
+          <span class="tile-kicker">« FOLLOW ALONG »</span>
           <h3 class="tile-title">Instagram</h3>
-          <span class="tile-sub">@madhurihandicrafts</span>
+          <span class="tile-meta">@madhurihandicrafts</span>
         </div>
       </a>
 
-      <!-- Tile 4: YouTube -->
-      <a class="tile tile-youtube" href="https://youtube.com/@madhurihandicrafts?si=1fFRDPG5VzB0aoFa" target="_blank" rel="noopener noreferrer" id="tile-youtube" title="Watch MADHURI FURNITURES on YouTube">
+      <!-- Card 5: YouTube -->
+      <a class="tile youtube" href="https://youtube.com/@madhurihandicrafts?si=1fFRDPG5VzB0aoFa" target="_blank" rel="noopener" title="Watch Madhuri Handicrafts on YouTube">
         <div class="tile-scrim"></div>
         <div class="tile-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </div>
         <div class="tile-content">
-          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.7">
-            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/>
-            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="rgba(255,255,255,0.9)"/>
-          </svg>
-          <span class="tile-eyebrow">Watch Craft Films</span>
+          <svg class="social-tile-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#fff"/></svg>
+          <span class="tile-kicker">« WATCH CRAFT FILMS »</span>
           <h3 class="tile-title">YouTube</h3>
-          <span class="tile-sub">@madhurihandicrafts</span>
+          <span class="tile-meta">@madhurihandicrafts</span>
         </div>
       </a>
 
-      <!-- Tile 5: Facebook -->
-      <a class="tile tile-facebook" href="https://www.facebook.com/share/1EeWiE2WVi/" target="_blank" rel="noopener noreferrer" id="tile-facebook" title="Join MADHURI FURNITURES on Facebook">
+      <!-- Card 6: Facebook -->
+      <a class="tile facebook" href="https://www.facebook.com/share/1EeWiE2WVi/" target="_blank" rel="noopener" title="Madhuri Furnitures on Facebook">
         <div class="tile-scrim"></div>
         <div class="tile-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </div>
         <div class="tile-content">
-          <svg class="social-icon" viewBox="0 0 24 24" fill="rgba(255,255,255,0.92)" stroke="none">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-          <span class="tile-eyebrow">Official Community</span>
+          <svg class="social-tile-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <span class="tile-kicker">« OFFICIAL COMMUNITY »</span>
           <h3 class="tile-title">Facebook</h3>
-          <span class="tile-sub">Madhuri Furnitures Official</span>
+          <span class="tile-meta">Madhuri Furnitures Official</span>
         </div>
       </a>
 
-      <!-- Tile 6: Google Business Profile & Reviews -->
-      <a class="tile tile-google" href="https://share.google/Jsr1t9YqODRpm7uWQ" target="_blank" rel="noopener noreferrer" id="tile-google" title="Find MADHURI FURNITURES on Google Profile & Maps">
+      <!-- Card 7: Google Business Profile (GMB) -->
+      <a class="tile google-profile" href="https://www.google.com/search?kgmid=/g/11s93srvg5&hl=en-IN&q=MADHURI+HANDICRAFTS" target="_blank" rel="noopener" title="Madhuri Handicrafts Google Business Profile">
         <div class="tile-scrim"></div>
         <div class="tile-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </div>
         <div class="tile-content">
-          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.92)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-          </svg>
-          <span class="tile-eyebrow">Verified Business</span>
+          <svg class="social-tile-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.344-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z"/></svg>
+          <span class="tile-kicker">« GOOGLE BUSINESS PROFILE »</span>
           <h3 class="tile-title">Google Profile</h3>
-          <span class="tile-sub">Location, Reviews &amp; Directions</span>
+          <span class="tile-meta">Madhuri Handicrafts · ★ 5.0 Rating</span>
         </div>
       </a>
 
-    </div><!-- /tiles -->
-
-    <!-- ── CTA SECTION ────────────────────────────── -->
-    <div class="cta-section">
-
-      <!-- Etsy CTA -->
-      <a class="etsy-btn" href="https://madhurihandicraft.etsy.com" target="_blank" rel="noopener noreferrer" id="shop-etsy-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
-        <span>Shop on madhurihandicraft.etsy.com</span>
-      </a>
-
-      <!-- Connect Card -->
-      <div class="connect-card" id="connect-card">
-
-        <!-- Card Header with Logo -->
-        <div class="connect-head">
-          <div class="connect-logo">
-            <img src="images/logo.png" alt="MADHURI FURNITURE — Since 1983" class="brand-logo-hd">
+      <!-- Card 8: THE BIG ETSY FLAGSHIP CARD (Replaces the lone button with a proper large luxury card!) -->
+      <a class="tile etsy-flagship-card full-width-span" href="https://madhurihandicraft.etsy.com" target="_blank" rel="noopener" title="Shop on madhurihandicraft.etsy.com">
+        <div class="tile-img" data-full="images/hero_deities.jpg"></div>
+        <div class="tile-scrim"></div>
+        <div class="tile-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </div>
+        <div class="tile-content">
+          <div class="tile-badge-row">
+            <span class="tile-kicker">« OFFICIAL ONLINE STORE »</span>
+            <span class="tile-chip etsy-gold-chip">★ 5.0 Star Artisan</span>
+            <span class="tile-chip">Worldwide Delivery</span>
           </div>
-          <div class="connect-label">Connect With Us</div>
-          <div class="connect-name">MADHURI FURNITURE</div>
+          <h2 class="tile-title">Shop on <em>madhurihandicraft.etsy.com</em></h2>
+          <span class="tile-meta">Explore All 58+ Curated Creations · Secure Checkout · Direct Artisan Craftsmanship</span>
+          
+          <div class="etsy-card-action-row">
+            <span class="etsy-card-btn">
+              <span>Visit Official Etsy Store</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </span>
+            <span class="etsy-trust-badge">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm-2 16l-4-4 1.41-1.41L10 15.17l6.59-6.59L18 10l-8 8z"/></svg>
+              <span>Worldwide Insured Shipping</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+    </main>
+
+    <!-- Google Profile & Consultation Buttons -->
+    <div class="secondary-btn-row" style="margin: 20px auto 0; width: 100%;">
+      <a class="secondary-btn review-btn-main" href="https://www.google.com/search?kgmid=/g/11s93srvg5&hl=en-IN&q=MADHURI+HANDICRAFTS" target="_blank" rel="noopener" title="Google Business Profile">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.344-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z"/></svg>
+        <span>Google Profile</span>
+      </a>
+      <a class="secondary-btn" href="https://wa.me/919627606000?text=Hello%20Madhuri%20Furniture!%20I%20am%20interested%20in%20your%20handcrafted%20wooden%20products." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <span>WhatsApp Consultation</span>
+      </a>
+    </div>
+
+    <!-- ====================================================================
+         EXECUTIVE LUXURY VISITING CARD (Ankush Rai - Madhuri Furniture)
+         ==================================================================== -->
+    <section class="visiting-card-section" id="visiting-card" aria-label="Official Visiting Card">
+      <div class="visiting-card">
+        
+        <!-- Card Front / Brand Identity Header -->
+        <div class="vcard-brand-header">
+          <div class="vcard-crest-wrapper">
+            <img src="images/madhuri_crest.png" alt="Madhuri Furniture Crest" class="vcard-crest-img">
+          </div>
+          <div class="vcard-brand-title">
+            <span class="vcard-brand-main">MADHURI</span>
+            <span class="vcard-brand-sub">FURNITURE</span>
+          </div>
+          <div class="vcard-brand-est">
+            <span class="vcard-dash"></span>
+            <span>SINCE 1983</span>
+            <span class="vcard-dash"></span>
+          </div>
         </div>
 
-        <!-- Contact Links -->
-        <div class="connect-body">
+        <div class="vcard-divider-gold"></div>
 
-          <!-- Phone -->
-          <a class="connect-row" href="tel:+919627606000" id="contact-phone">
-            <span class="ci">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12.7a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </span>
-            <span>+91 96276 06000</span>
-          </a>
+        <!-- Card Body: Split Layout (Executive Details Left, QR & Quick Save Right) -->
+        <div class="vcard-body">
+          
+          <!-- Left Column: Name, Offerings & Verified Contacts -->
+          <div class="vcard-primary">
+            
+            <!-- Executive Name -->
+            <div class="vcard-person">
+              <h3 class="vcard-name">Ankush Rai</h3>
+              <div class="vcard-name-line"></div>
+            </div>
 
-          <!-- WhatsApp -->
-          <a class="connect-row" href="https://wa.me/919627606000?text=Hello%20Madhuri%20Furnitures!%20I%20am%20interested%20in%20your%20furniture%20collection." target="_blank" rel="noopener noreferrer" id="contact-whatsapp">
-            <span class="ci">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-              </svg>
-            </span>
-            <span>WhatsApp Enquiry (+91 96276 06000)</span>
-          </a>
+            <!-- Business Offerings List (Exact from card) -->
+            <ul class="vcard-tags-list">
+              <li><span class="vcard-bullet">•</span> MANUFACTURERS &amp; SALES</li>
+              <li><span class="vcard-bullet">•</span> TEAK WOOD FURNITURES</li>
+              <li><span class="vcard-bullet">•</span> WOOD HANDICRAFTS</li>
+              <li><span class="vcard-bullet">•</span> SAW MILL</li>
+              <li><span class="vcard-bullet">•</span> WOOD TRADERS</li>
+            </ul>
 
-          <!-- Instagram -->
-          <a class="connect-row" href="https://www.instagram.com/madhurihandicrafts?igsh=MTExb3ZwZnlpY2J1bA==" target="_blank" rel="noopener noreferrer" id="contact-instagram">
-            <span class="ci ci-insta">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/>
-                <circle cx="12" cy="12" r="4.5"/>
-                <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"/>
-              </svg>
-            </span>
-            <span>Instagram · @madhurihandicrafts</span>
-          </a>
+            <!-- Contact Details List -->
+            <div class="vcard-contacts">
+              
+              <!-- Direct Call -->
+              <a class="vcard-contact-item" href="tel:+919713433933">
+                <span class="vcard-c-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <div class="vcard-c-info">
+                  <span class="vcard-c-label">CALL DIRECT</span>
+                  <span class="vcard-c-text">+91 97134 33933</span>
+                </div>
+              </a>
 
-          <!-- YouTube -->
-          <a class="connect-row" href="https://youtube.com/@madhurihandicrafts?si=1fFRDPG5VzB0aoFa" target="_blank" rel="noopener noreferrer" id="contact-youtube">
-            <span class="ci ci-yt">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/>
-                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/>
-              </svg>
-            </span>
-            <span>YouTube · @madhurihandicrafts</span>
-          </a>
+              <!-- Website -->
+              <a class="vcard-contact-item" href="https://www.madhurifurniture.in" target="_blank" rel="noopener">
+                <span class="vcard-c-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </span>
+                <div class="vcard-c-info">
+                  <span class="vcard-c-label">OFFICIAL WEBSITE</span>
+                  <span class="vcard-c-text">www.madhurifurniture.in</span>
+                </div>
+              </a>
 
-          <!-- Facebook -->
-          <a class="connect-row" href="https://www.facebook.com/share/1EeWiE2WVi/" target="_blank" rel="noopener noreferrer" id="contact-facebook">
-            <span class="ci ci-fb">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-              </svg>
-            </span>
-            <span>Facebook · Official Page</span>
-          </a>
+              <!-- Email -->
+              <a class="vcard-contact-item" href="mailto:madhurifurniture1983@gmail.com">
+                <span class="vcard-c-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+                <div class="vcard-c-info">
+                  <span class="vcard-c-label">EMAIL ADDRESS</span>
+                  <span class="vcard-c-text">madhurifurniture1983@gmail.com</span>
+                </div>
+              </a>
 
-          <!-- Google Maps / Business -->
-          <a class="connect-row" href="https://share.google/Jsr1t9YqODRpm7uWQ" target="_blank" rel="noopener noreferrer" id="contact-maps">
-            <span class="ci ci-google">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-              </svg>
-            </span>
-            <span>Google Profile &amp; Location (Reviews)</span>
-          </a>
+              <!-- Physical Address -->
+              <a class="vcard-contact-item" href="https://share.google/Jsr1t9YqODRpm7uWQ" target="_blank" rel="noopener">
+                <span class="vcard-c-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <div class="vcard-c-info">
+                  <span class="vcard-c-label">STORE &amp; WORKSHOP LOCATION</span>
+                  <span class="vcard-c-text">Shobhapur Road Tiraha Near Axis Bank<br>Pipariya 461775 (M.P.)</span>
+                </div>
+              </a>
 
-          <!-- Etsy Store -->
-          <a class="connect-row" href="https://madhurihandicraft.etsy.com" target="_blank" rel="noopener noreferrer" id="contact-etsy">
-            <span class="ci">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-              </svg>
-            </span>
-            <span>Shop on Etsy · madhurihandicraft.etsy.com</span>
-          </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Gold QR Code & Quick Actions -->
+          <div class="vcard-secondary">
+            <div class="vcard-qr-box">
+              <div class="vcard-qr-frame">
+                <span class="qr-corner top-left"></span>
+                <span class="qr-corner top-right"></span>
+                <span class="qr-corner bottom-left"></span>
+                <span class="qr-corner bottom-right"></span>
+                <img src="images/visiting_qr.png" alt="Scan to Save Ankush Rai Digital Contact" class="vcard-qr-image">
+              </div>
+              <div class="vcard-qr-caption">
+                <span class="qr-tag">DIGITAL BUSINESS CARD</span>
+                <span class="qr-hint">Scan with Camera or Tap Below</span>
+              </div>
+            </div>
+
+            <!-- Quick Action Hub -->
+            <div class="vcard-actions">
+              <button type="button" class="vcard-action-btn vcard-save-btn" onclick="downloadVCard()" title="Save Ankush Rai to Phone Contacts">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <span>Save Contact</span>
+              </button>
+
+              <a class="vcard-action-btn vcard-wa-btn" href="https://wa.me/919627606000?text=Hello%20Ankush%20ji,%20I%20am%20contacting%20you%20from%20Madhuri%20Furniture%20visiting%20card." target="_blank" rel="noopener" title="Direct WhatsApp Chat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
 
         </div>
-      </div><!-- /connect-card -->
 
-    </div><!-- /cta-section -->
+        <!-- Card Social Channels Strip -->
+        <div class="vcard-social-strip">
+          <a href="https://madhurihandicraft.etsy.com" target="_blank" rel="noopener" class="vcard-social-item" title="Visit Etsy Global Store">
+            <span class="vcard-social-icon">🛒</span>
+            <span>Etsy Shop</span>
+          </a>
+          <a href="https://www.instagram.com/madhurihandicrafts?igsh=MTExb3ZwZnlpY2J1bA==" target="_blank" rel="noopener" class="vcard-social-item" title="Instagram Profile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://youtube.com/@madhurihandicrafts?si=1fFRDPG5VzB0aoFa" target="_blank" rel="noopener" class="vcard-social-item" title="YouTube Channel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/></svg>
+            <span>YouTube</span>
+          </a>
+          <a href="https://www.facebook.com/share/1EeWiE2WVi/" target="_blank" rel="noopener" class="vcard-social-item" title="Facebook Page">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.google.com/search?kgmid=/g/11s93srvg5&hl=en-IN&q=MADHURI+HANDICRAFTS" target="_blank" rel="noopener" class="vcard-social-item" title="Google Business Profile">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.344-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z"/></svg>
+            <span>Google Profile</span>
+          </a>
+        </div>
 
-    <!-- ── FOOTER ─────────────────────────────────── -->
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="hub-footer">
-      MADHURI FURNITURES
-      <span class="dot">·</span>
-      Premium Indian Furniture
-      <span class="dot">·</span>
-      madhurihandicraft.etsy.com
-      <span class="dot">·</span>
-      Worldwide Delivery
+      MADHURI FURNITURES <span class="dot">·</span> Premium Indian Furniture <span class="dot">·</span> madhurihandicraft.etsy.com <span class="dot">·</span> Worldwide Delivery
     </footer>
 
-  </div><!-- /hub -->
+  </div>
 
+  <!-- Lookbook & Product Detail Modal -->
+  <div class="modal-backdrop" id="lookbookModal" aria-hidden="true">
+    <div class="modal-container" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-grid">
+        <div class="modal-media">
+          <img id="modalImg" src="images/brass_heritage.jpg" alt="Collection Item">
+          <div class="modal-media-overlay"></div>
+          <div class="modal-media-badge" id="modalBadge">2026 Collection</div>
+        </div>
+        <div class="modal-details">
+          <div class="modal-kicker" id="modalKicker">The Heritage Brass Edit</div>
+          <h3 class="modal-title" id="modalTitle">Antique Brass Ganesha with Prabhavali</h3>
+          <p class="modal-description" id="modalDesc">Hand-cast solid brass idol with delicate artisanal engraving, finished in rich antique golden patina.</p>
+
+          <div class="modal-specs-grid">
+            <div class="spec-item">
+              <span class="spec-label">Material</span>
+              <span class="spec-val" id="modalMaterial">Solid Virgin Brass</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Finish</span>
+              <span class="spec-val" id="modalFinish">Antique Gold Patina</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Dimensions</span>
+              <span class="spec-val" id="modalDimensions">14" H x 9.5" W</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Weight</span>
+              <span class="spec-val" id="modalWeight">5.8 kg Approx.</span>
+            </div>
+          </div>
+
+          <div class="modal-actions-row">
+            <a class="modal-btn-primary" id="modalEtsyBtn" href="https://madhurihandicraft.etsy.com" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              <span>Order on Etsy</span>
+            </a>
+            <a class="modal-btn-secondary" id="modalWhatsAppBtn" href="#" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>WhatsApp Inquiry</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ultra-Luxury Floating WhatsApp Quick Action Button -->
+  <a class="floating-whatsapp" href="https://wa.me/919627606000?text=Hello%20Madhuri%20Handicrafts!%20I%20want%20to%20inquire%20about%20your%20handicraft%20collection." target="_blank" rel="noopener" aria-label="Chat with Us on WhatsApp">
+    <span class="floating-wa-icon-box">
+      <svg class="wa-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.01 2.01c-5.5 0-9.98 4.47-9.98 9.97 0 1.76.46 3.48 1.33 5l-1.42 5.18 5.3-1.39c1.47.8 3.12 1.22 4.77 1.22 5.5 0 9.98-4.48 9.98-9.98 0-2.66-1.04-5.17-2.92-7.05A9.92 9.92 0 0 0 12.01 2.01zm0 18.27c-1.49 0-2.95-.4-4.22-1.16l-.3-.18-3.14.82.84-3.05-.2-.31a8.27 8.27 0 0 1-1.27-4.41c0-4.57 3.72-8.29 8.29-8.29 2.21 0 4.29.86 5.86 2.42 1.56 1.57 2.42 3.65 2.42 5.86 0 4.58-3.72 8.3-8.28 8.3zm4.54-6.2c-.25-.13-1.47-.73-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.13.17 1.76 2.68 4.26 3.76.6.26 1.06.41 1.42.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+      </svg>
+      <span class="floating-wa-pulse" aria-hidden="true"></span>
+    </span>
+    <div class="floating-wa-text">
+      <span class="wa-status-text"><span class="wa-status-dot"></span> Online</span>
+      <span class="wa-main-text">Chat with Us</span>
+    </div>
+  </a>
+
+  <!-- Scripts -->
+  <script src="js/catalog-data.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
