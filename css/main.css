@@ -652,14 +652,72 @@ button {
   width: 100%;
 }
 
+.full-width-span,
+.tile.full-width-span {
+  grid-column: 1 / -1;
+}
+
+/* Social Media Bento Matrix - Always a balanced 2x2 luxury grid */
+.hub-social-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  width: 100%;
+}
+
+.hub-social-matrix .tile {
+  min-height: clamp(140px, 18vh, 180px);
+}
+
 @media (max-width: 540px) {
   .hub-cards-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
-}
 
-.tile.full-width-span {
-  grid-column: 1 / -1;
+  .hub-social-matrix {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .hub-social-matrix .tile {
+    min-height: 126px !important;
+    border-radius: 14px !important;
+  }
+
+  .hub-social-matrix .tile-content {
+    padding: 12px !important;
+    gap: 3px !important;
+  }
+
+  .hub-social-matrix .tile-title {
+    font-size: 17px !important;
+    line-height: 1.15;
+  }
+
+  .hub-social-matrix .tile-kicker {
+    font-size: 7.5px !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .hub-social-matrix .tile-meta {
+    font-size: 9.5px !important;
+    line-height: 1.2 !important;
+    margin-top: 1px;
+  }
+
+  .hub-social-matrix .tile-arrow {
+    top: 10px !important;
+    right: 10px !important;
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .hub-social-matrix .social-tile-icon {
+    width: 24px !important;
+    height: 24px !important;
+    margin-bottom: 2px;
+  }
 }
 
 /* ==========================================================================
@@ -1772,22 +1830,129 @@ button {
 
 @media (max-width: 580px) {
   .floating-whatsapp {
-    padding: 6px;
-    bottom: 20px;
-    right: 20px;
-    gap: 0;
-    border-radius: 50%;
+    padding: 6px 14px 6px 8px;
+    bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    right: 14px;
+    gap: 8px;
+    border-radius: 9999px;
+    box-shadow: 
+      0 12px 30px -4px rgba(37, 211, 102, 0.65),
+      0 4px 14px rgba(0, 0, 0, 0.5),
+      inset 0 1px 1.5px rgba(255, 255, 255, 0.55);
   }
   .floating-wa-text {
-    display: none;
+    display: flex;
+  }
+  .wa-status-text {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+  .wa-status-dot {
+    width: 5.5px;
+    height: 5.5px;
+  }
+  .wa-main-text {
+    font-size: 11.5px;
   }
   .floating-wa-icon-box {
-    width: 44px;
-    height: 44px;
+    width: 32px;
+    height: 32px;
   }
   .floating-wa-icon-box .wa-icon-svg {
-    width: 27px;
-    height: 27px;
+    width: 19px;
+    height: 19px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE LUXURY EXPERIENCE & AESTHETIC UPGRADE (Ultra-Rich Liquid & Glass)
+   ========================================================================== */
+@media (max-width: 600px) {
+  /* Rich liquid ambient glow on small screens */
+  .liquid-canvas {
+    opacity: 1 !important;
+  }
+
+  .liquid-orb {
+    filter: blur(55px) !important;
+  }
+
+  .orb-gold-top {
+    top: -6% !important;
+    left: 5% !important;
+    width: 310px !important;
+    height: 310px !important;
+    background: radial-gradient(circle, rgba(223, 183, 108, 0.45) 0%, rgba(184, 134, 11, 0.22) 50%, transparent 75%) !important;
+  }
+
+  .orb-amber-right {
+    top: 24% !important;
+    right: -12% !important;
+    width: 270px !important;
+    height: 270px !important;
+    background: radial-gradient(circle, rgba(210, 115, 40, 0.38) 0%, rgba(150, 70, 20, 0.18) 50%, transparent 75%) !important;
+  }
+
+  .orb-sapphire-left {
+    top: 50% !important;
+    left: -12% !important;
+    width: 280px !important;
+    height: 280px !important;
+    background: radial-gradient(circle, rgba(45, 105, 195, 0.35) 0%, rgba(18, 55, 130, 0.16) 50%, transparent 75%) !important;
+  }
+
+  .orb-bronze-center {
+    bottom: -6% !important;
+    right: 4% !important;
+    width: 290px !important;
+    height: 290px !important;
+    background: radial-gradient(circle, rgba(217, 173, 109, 0.34) 0%, rgba(170, 95, 30, 0.15) 50%, transparent 75%) !important;
+  }
+
+  /* Luxury card presence on mobile */
+  .tile {
+    border-radius: 16px;
+    border: 1px solid rgba(217, 173, 109, 0.28) !important;
+    background: linear-gradient(135deg, rgba(32, 25, 18, 0.78) 0%, rgba(18, 14, 10, 0.88) 100%) !important;
+    box-shadow: 
+      0 14px 34px -8px rgba(0, 0, 0, 0.85),
+      0 0 18px rgba(217, 173, 109, 0.08),
+      inset 0 1px 1.5px rgba(255, 255, 255, 0.28) !important;
+  }
+
+  .tile:active {
+    transform: scale(0.985);
+    border-color: var(--gold) !important;
+  }
+
+  .hub-cards-grid > .tile {
+    min-height: 215px !important;
+  }
+
+  .hub-brand-crest-box {
+    width: 74px;
+    height: 74px;
+    border-radius: 18px;
+    box-shadow: 0 0 28px rgba(217, 173, 109, 0.35);
+    border: 1.5px solid rgba(217, 173, 109, 0.5);
+  }
+
+  .hub-header-text .wordmark {
+    font-size: clamp(20px, 5.5vw, 24px) !important;
+    letter-spacing: 0.22em !important;
+    background: linear-gradient(135deg, #ffffff 15%, #ffd285 55%, #c8933b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hub-header-text .tagline {
+    font-size: 8.8px !important;
+    letter-spacing: 0.14em !important;
+    color: var(--gold-light) !important;
+  }
+
+  .hub-container {
+    padding: 16px 14px 40px !important;
   }
 }
 

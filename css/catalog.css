@@ -611,6 +611,151 @@ footer.lookbook-footer {
   z-index: 2;
 }
 
+/* ==========================================================================
+   MOBILE LUXURY EXPERIENCE (Lookbook Editorial on Mobile)
+   ========================================================================== */
+@media (max-width: 680px) {
+  header.lookbook-header {
+    padding: 12px 14px;
+  }
+
+  .wordmark {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    gap: 8px;
+  }
+
+  .wordmark .year {
+    display: none;
+  }
+
+  .hdr-right {
+    gap: 10px;
+  }
+
+  .counter {
+    font-size: 11px;
+    min-width: 44px;
+    letter-spacing: 0.1em;
+  }
+
+  .dl-btn {
+    font-size: 9.5px;
+    padding: 7px 12px;
+    letter-spacing: 0.08em;
+    gap: 5px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 95px 16px 36px;
+  }
+
+  .eyebrow {
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+    margin-bottom: 14px;
+    line-height: 1.08;
+  }
+
+  .hero p.sub {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    padding: 0 8px;
+  }
+
+  .hero-filter-tabs {
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .lookbook-tab {
+    padding: 7px 14px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-meta-bar {
+    gap: 14px;
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+  }
+
+  .spread {
+    min-height: auto;
+    padding: 32px 14px;
+  }
+
+  .frame-media-box {
+    border-radius: 14px;
+    box-shadow: 0 20px 48px -15px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(217, 173, 109, 0.25);
+  }
+
+  .frame img {
+    max-height: 65vh;
+  }
+
+  .plate {
+    margin-top: 14px;
+    padding-top: 12px;
+    gap: 10px;
+  }
+
+  .plate .num {
+    font-size: 13px;
+  }
+
+  .plate .cap-info {
+    min-width: 150px;
+  }
+
+  .plate .cap-title {
+    font-size: 14.5px;
+  }
+
+  .plate .cap-meta {
+    font-size: 9.5px;
+  }
+
+  .plate .cap-action {
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+
+  .closing {
+    min-height: auto;
+    padding: 70px 18px 50px;
+  }
+
+  .closing .mark {
+    font-size: 30px;
+  }
+
+  .closing p {
+    font-size: 13.5px;
+    margin-bottom: 28px;
+  }
+
+  .closing-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
