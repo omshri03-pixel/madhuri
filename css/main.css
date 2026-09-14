@@ -1467,24 +1467,31 @@ button {
 .hub-footer {
   flex: 0 0 auto;
   text-align: center;
-  padding: clamp(24px, 4vh, 36px) 12px 10px;
-  font-size: clamp(9px, 1.3vw, 11px);
-  letter-spacing: 0.12em;
+  padding: clamp(28px, 5vh, 42px) 12px clamp(70px, 10vh, 90px);
+  font-size: clamp(10.5px, 1.4vw, 12px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--ivory-dim);
   opacity: 0;
   animation: rise 0.8s var(--ease) 0.65s forwards;
   line-height: 1.8;
 }
 
-.hub-footer .dot {
-  margin: 0 8px;
+.dev-credit-link {
   color: var(--gold);
-  opacity: 0.7;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: all 0.3s var(--ease);
+  display: inline-block;
+  border-bottom: 1px solid rgba(217, 173, 109, 0.45);
+  padding-bottom: 1px;
 }
 
-.hub-footer a:hover {
-  color: var(--gold);
-  text-decoration: underline;
+.dev-credit-link:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+  text-shadow: 0 0 12px rgba(217, 173, 109, 0.8);
 }
 
 /* ==========================================================================
@@ -1909,8 +1916,8 @@ button {
     background: radial-gradient(circle, rgba(217, 173, 109, 0.34) 0%, rgba(170, 95, 30, 0.15) 50%, transparent 75%) !important;
   }
 
-  /* Luxury card presence on mobile */
-  .tile {
+  /* Luxury card presence on mobile for Category & Flagship tiles */
+  .hub-cards-grid > .tile:not(.hub-social-matrix .tile) {
     border-radius: 16px;
     border: 1px solid rgba(217, 173, 109, 0.28) !important;
     background: linear-gradient(135deg, rgba(32, 25, 18, 0.78) 0%, rgba(18, 14, 10, 0.88) 100%) !important;
@@ -1918,15 +1925,61 @@ button {
       0 14px 34px -8px rgba(0, 0, 0, 0.85),
       0 0 18px rgba(217, 173, 109, 0.08),
       inset 0 1px 1.5px rgba(255, 255, 255, 0.28) !important;
+    min-height: 215px !important;
+  }
+
+  /* Vibrant, Luminous Jewel-Tone Social Cards on Mobile Screens */
+  .tile.facebook {
+    background: radial-gradient(circle at 10% 120%, #2563eb 0%, #1d4ed8 35%, #1e40af 70%, #0f172a 100%) !important;
+    border: 1px solid rgba(96, 165, 250, 0.5) !important;
+    box-shadow: 0 10px 24px -6px rgba(29, 78, 216, 0.5), inset 0 1px 1.5px rgba(255, 255, 255, 0.35) !important;
+  }
+  .tile.facebook .tile-scrim {
+    background: linear-gradient(120deg, rgba(15, 23, 42, 0.35) 0%, rgba(15, 23, 42, 0.05) 100%) !important;
+  }
+  .tile.facebook .tile-kicker {
+    color: #bfdbfe !important;
+  }
+
+  .tile.instagram {
+    background: radial-gradient(circle at 15% 125%, #facc15 0%, #fb923c 22%, #f43f5e 46%, #c026d3 72%, #4f46e5 100%) !important;
+    border: 1px solid rgba(251, 146, 60, 0.6) !important;
+    box-shadow: 0 10px 24px -6px rgba(192, 38, 211, 0.5), inset 0 1px 1.5px rgba(255, 255, 255, 0.4) !important;
+  }
+  .tile.instagram .tile-scrim {
+    background: linear-gradient(120deg, rgba(20, 10, 25, 0.35) 0%, rgba(20, 10, 25, 0.05) 100%) !important;
+  }
+  .tile.instagram .tile-kicker {
+    color: #fef08a !important;
+  }
+
+  .tile.youtube {
+    background: radial-gradient(circle at 10% 120%, #ef4444 0%, #dc2626 35%, #991b1b 70%, #200404 100%) !important;
+    border: 1px solid rgba(248, 113, 113, 0.55) !important;
+    box-shadow: 0 10px 24px -6px rgba(220, 38, 38, 0.5), inset 0 1px 1.5px rgba(255, 255, 255, 0.35) !important;
+  }
+  .tile.youtube .tile-scrim {
+    background: linear-gradient(120deg, rgba(32, 4, 4, 0.35) 0%, rgba(32, 4, 4, 0.05) 100%) !important;
+  }
+  .tile.youtube .tile-kicker {
+    color: #fca5a5 !important;
+  }
+
+  .tile.google-profile {
+    background: radial-gradient(circle at 15% 120%, #f59e0b 0%, #b45309 30%, #1d4ed8 72%, #091e3a 100%) !important;
+    border: 1px solid rgba(251, 191, 36, 0.55) !important;
+    box-shadow: 0 10px 24px -6px rgba(217, 119, 6, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.35) !important;
+  }
+  .tile.google-profile .tile-scrim {
+    background: linear-gradient(120deg, rgba(9, 30, 58, 0.35) 0%, rgba(9, 30, 58, 0.05) 100%) !important;
+  }
+  .tile.google-profile .tile-kicker {
+    color: #fde68a !important;
   }
 
   .tile:active {
     transform: scale(0.985);
     border-color: var(--gold) !important;
-  }
-
-  .hub-cards-grid > .tile {
-    min-height: 215px !important;
   }
 
   .hub-brand-crest-box {
