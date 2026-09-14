@@ -1056,6 +1056,18 @@ button {
   margin: 0;
 }
 
+.vcard-role-badge {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(13px, 2.5vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #dfb76c;
+  -webkit-text-fill-color: #dfb76c;
+  vertical-align: middle;
+  margin-left: 6px;
+  display: inline-block;
+}
+
 .vcard-name-line {
   width: 90px;
   height: 2.5px;

@@ -196,15 +196,15 @@ function downloadVCard() {
 `BEGIN:VCARD
 VERSION:3.0
 N:Rai;Ankush;;;
-FN:Ankush Rai
+FN:Ankush Rai (Owner)
 ORG:Madhuri Furniture
-TITLE:Executive / Director
+TITLE:Owner
 TEL;TYPE=CELL,VOICE,PREF:+919713433933
 TEL;TYPE=WORK,VOICE:+919627606000
 EMAIL;TYPE=WORK,INTERNET:madhurifurniture1983@gmail.com
 URL;TYPE=WORK:https://www.madhurifurniture.in
 URL;TYPE=X-ETSY:https://madhurihandicraft.etsy.com
-ADR;TYPE=WORK:;;Shobhapur Road Tiraha Near Axis Bank;Pipariya;Madhya Pradesh;461775;India
+ADR;TYPE=WORK:;;Shobhapur Road Tiraha;Pipariya;Madhya Pradesh;461775;India
 NOTE:Manufacturers & Sales, Teak Wood Furnitures, Wood Handicrafts, Saw Mill, Wood Traders Since 1983
 END:VCARD`;
 
