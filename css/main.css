@@ -625,6 +625,25 @@ button {
   box-shadow: 0 24px 50px -16px rgba(24, 80, 181, 0.55);
 }
 
+/* Threads Showcase Tile */
+.tile.threads {
+  background: radial-gradient(circle at 15% 120%, #3a3a3a 0%, #1c1c1c 40%, #101010 75%, #050505 100%);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.tile.threads .tile-scrim {
+  background: linear-gradient(105deg, rgba(8, 8, 8, 0.85) 0%, rgba(8, 8, 8, 0.45) 50%, rgba(8, 8, 8, 0.1) 100%);
+}
+
+.tile.threads .tile-kicker {
+  color: #e2e8f0;
+}
+
+.tile.threads:hover {
+  border-color: #ffffff;
+  box-shadow: 0 24px 50px -16px rgba(255, 255, 255, 0.3);
+}
+
 /* Google Profile Showcase Tile */
 .tile.google-profile {
   background: radial-gradient(circle at 20% 120%, #e6a338 0%, #a66a1e 35%, #1f5080 70%, #0c233d 100%);
@@ -669,6 +688,10 @@ button {
   min-height: clamp(140px, 18vh, 180px);
 }
 
+.hub-social-matrix .tile.full-width-span {
+  grid-column: 1 / -1;
+}
+
 @media (max-width: 540px) {
   .hub-cards-grid {
     grid-template-columns: 1fr;
@@ -683,6 +706,10 @@ button {
   .hub-social-matrix .tile {
     min-height: 126px !important;
     border-radius: 14px !important;
+  }
+
+  .hub-social-matrix .tile.full-width-span {
+    grid-column: 1 / -1 !important;
   }
 
   .hub-social-matrix .tile-content {
@@ -1241,13 +1268,13 @@ button {
 /* Action Buttons */
 .vcard-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   width: 100%;
-  max-width: 260px;
+  max-width: 280px;
 }
 
 .vcard-action-btn {
-  flex: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1270,6 +1297,7 @@ button {
 }
 
 .vcard-save-btn {
+  flex: 1 1 calc(50% - 6px);
   background: linear-gradient(135deg, #f1cb7c 0%, #d4af37 50%, #b8860b 100%);
   color: #0d0a06;
   border: none;
@@ -1283,6 +1311,7 @@ button {
 }
 
 .vcard-wa-btn {
+  flex: 1 1 calc(50% - 6px);
   background: rgba(37, 211, 102, 0.12);
   border: 1px solid rgba(37, 211, 102, 0.4);
   color: #4ade80;
@@ -1294,6 +1323,22 @@ button {
   color: #fff;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+}
+
+.vcard-review-btn {
+  flex: 1 1 100%;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(217, 119, 6, 0.26) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  color: #fbbf24;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.18);
+}
+
+.vcard-review-btn:hover {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.3) 0%, rgba(217, 119, 6, 0.45) 100%);
+  border-color: #f59e0b;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
 }
 
 /* Card Social Channels Strip */
@@ -1963,6 +2008,18 @@ button {
   }
   .tile.youtube .tile-kicker {
     color: #fca5a5 !important;
+  }
+
+  .tile.threads {
+    background: radial-gradient(circle at 15% 120%, #3f3f46 0%, #27272a 35%, #18181b 70%, #09090b 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.6), inset 0 1px 1.5px rgba(255, 255, 255, 0.35) !important;
+  }
+  .tile.threads .tile-scrim {
+    background: linear-gradient(120deg, rgba(9, 9, 11, 0.35) 0%, rgba(9, 9, 11, 0.05) 100%) !important;
+  }
+  .tile.threads .tile-kicker {
+    color: #e4e4e7 !important;
   }
 
   .tile.google-profile {
