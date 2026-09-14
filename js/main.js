@@ -195,8 +195,8 @@ function downloadVCard() {
   const vcard = 
 `BEGIN:VCARD
 VERSION:3.0
-N:Rai;Ankush;;;
-FN:Ankush Rai (Owner)
+N:Rai;Ankush;;Mr.;
+FN:Mr. Ankush Rai
 ORG:Madhuri Furniture
 TITLE:Owner
 TEL;TYPE=CELL,VOICE,PREF:+919713433933
@@ -205,7 +205,7 @@ EMAIL;TYPE=WORK,INTERNET:madhurifurniture1983@gmail.com
 URL;TYPE=WORK:https://www.madhurifurniture.in
 URL;TYPE=X-ETSY:https://madhurihandicraft.etsy.com
 ADR;TYPE=WORK:;;Shobhapur Road Tiraha;Pipariya;Madhya Pradesh;461775;India
-NOTE:Manufacturers & Sales, Teak Wood Furnitures, Wood Handicrafts, Saw Mill, Wood Traders Since 1983
+NOTE:Madhuri Furniture (Since 1983) | Founder: Late Mr. Anil Rai | Owner: Mr. Ankush Rai. Manufacturers & Sales, Teak Wood Furnitures, Wood Handicrafts, Saw Mill, Wood Traders.
 END:VCARD`;
 
   try {
@@ -213,7 +213,7 @@ END:VCARD`;
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.setAttribute('download', 'Ankush_Rai_Madhuri_Furniture.vcf');
+    link.setAttribute('download', 'Madhuri_Furniture_Ankush_Rai.vcf');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
