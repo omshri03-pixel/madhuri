@@ -1,5 +1,5 @@
 // Madhuri Handicrafts / Furniture — Curated 2026 Collection Data
-// Matching Official Etsy Store: Premium Wooden Deities (40), Nature's Collection (16), Collectibles (2) = Total 58
+// Matching Official Etsy Store: Premium Wooden Deities (40), Nature's Collection (4), Collectibles (2) = Total 46
 
 const HUB_COLLECTIONS = [
   {
@@ -16,8 +16,8 @@ const HUB_COLLECTIONS = [
     id: "nature",
     kicker: "Vastu & Wildlife Artistry",
     title: "Nature's <em>Collection</em>",
-    meta: "16 Sculptures · 7 Running Horses, Wild Elephants & Royal Tiger Panels",
-    chip: "16 Curated Works",
+    meta: "4 Sculptures · Royal Elephant, Surya 7 Horses, Bengal Tiger & Himalayan Bear",
+    chip: "4 Curated Works",
     category: "nature",
     image: "images/hero_nature.jpg",
     linkText: "Explore Collection"
@@ -837,26 +837,6 @@ const CATALOG_DATA = [
   },
   {
     "id": "nature-01",
-    "title": "Royal Elephant Wilderness 3D Relief Scenery (Model 1)",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Wildlife Heritage",
-    "material": "Selected Grain Indian Teakwood",
-    "finish": "Rich Earthy Walnut & Forest Wax",
-    "dimensions": "36\" W x 20\" H x 3.5\" Depth",
-    "weight": "8.6 kg",
-    "pages": "Pages 60-61",
-    "description": "Grand landscape carving depicting majestic Asian tusker herd traversing a lush river forest under sprawling banyan canopies. Symbol of strength, loyalty, and good fortune.",
-    "image": "images/products/elephant_scenery.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "Multi-layer depth carving",
-      "Lifelike elephant skin textures",
-      "Hand-carved foliage undercuts"
-    ]
-  },
-  {
-    "id": "nature-02",
     "title": "Royal Elephant Scenery — Forest Sanctuary (Model 2)",
     "category": "nature",
     "collection": "Nature's Collection",
@@ -865,7 +845,7 @@ const CATALOG_DATA = [
     "finish": "Antique Golden Honey Polish",
     "dimensions": "42\" W x 24\" H x 4\" Depth",
     "weight": "11.2 kg",
-    "pages": "Pages 62-63",
+    "pages": "Plate 41",
     "description": "Expansive panorama of maternal elephant guiding calves through sacred wilderness, evoking family bonding and natural harmony.",
     "image": "images/products/elephant_scenery_model_2.jpg",
     "etsyUrl": "https://madhurihandicraft.etsy.com",
@@ -876,27 +856,7 @@ const CATALOG_DATA = [
     ]
   },
   {
-    "id": "nature-03",
-    "title": "Surya 7 Running Horses Vastu Prosperity Board",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Vastu Essential",
-    "material": "A-Grade Indian Teakwood",
-    "finish": "Natural Teak Satin with Golden Undertones",
-    "dimensions": "36\" W x 16\" H x 2.5\" Depth",
-    "weight": "7.2 kg",
-    "pages": "Pages 64-65",
-    "description": "Seven Galloping Horses galloping forward in unison, representing the seven rays of the Sun God Surya. Renowned in Vastu Shastra for generating momentum, career success, and financial breakthrough.",
-    "image": "images/products/seven_horses.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "Dynamically flowing horse manes",
-      "Seven horses in synchronized stride",
-      "North/East wall Vastu recommended"
-    ]
-  },
-  {
-    "id": "nature-04",
+    "id": "nature-02",
     "title": "Surya 7 Horses Hand-Carved Teakwood Stand Panel",
     "category": "nature",
     "collection": "Nature's Collection",
@@ -905,7 +865,7 @@ const CATALOG_DATA = [
     "finish": "Deep Espresso Polish",
     "dimensions": "28\" W x 12\" H x 4\" Base",
     "weight": "5.4 kg",
-    "pages": "Pages 66-67",
+    "pages": "Plate 42",
     "description": "Freestanding executive office edition of the 7 horses sculpture, engineered for boardroom credenzas and executive desks.",
     "image": "images/products/seven_horses_7_horse_teakwood.jpg",
     "etsyUrl": "https://madhurihandicraft.etsy.com",
@@ -916,67 +876,7 @@ const CATALOG_DATA = [
     ]
   },
   {
-    "id": "nature-05",
-    "title": "Deep Wilderness Forest Nature Scenery Relief (Model 1)",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Forest Serenity",
-    "material": "Solid Hardwood & Teak",
-    "finish": "Hand-Rubbed Walnut Satin",
-    "dimensions": "32\" W x 18\" H x 3\" Depth",
-    "weight": "6.8 kg",
-    "pages": "Pages 68-69",
-    "description": "Tranquil pastoral landscape featuring mountain streams, cascading waterfalls, deer grazing by the bank, and songbirds nestled in the branches.",
-    "image": "images/products/nature_scenery.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "Continuous nature landscape",
-      "Intricate foliage undercuts",
-      "Brings organic calmness into urban interiors"
-    ]
-  },
-  {
-    "id": "nature-06",
-    "title": "Wild Fauna Nature Scenery — Mountain Ridge (Model 2)",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Rustic Splendor",
-    "material": "Single Hardwood Slab",
-    "finish": "Golden Chestnut Glow",
-    "dimensions": "38\" W x 22\" H x 3.5\" Depth",
-    "weight": "8.9 kg",
-    "pages": "Pages 70-71",
-    "description": "Deep dimensional relief of misty hills with wildlife in peaceful co-existence, masterfully carved with varying depth layers.",
-    "image": "images/products/nature_scenery_nature_scenery_2.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "Multi-tier spatial perspective",
-      "Natural timber contours preserved",
-      "Resistant to moisture"
-    ]
-  },
-  {
-    "id": "nature-07",
-    "title": "Royal Bengal Tiger 3D Wall Relief Sculpture (Model 1)",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Power & Grace",
-    "material": "Seasoned Dense Teakwood",
-    "finish": "Striated Amber & Dark Walnut",
-    "dimensions": "26\" W x 18\" H x 4\" Depth",
-    "weight": "5.8 kg",
-    "pages": "Pages 72-73",
-    "description": "The apex predator of the Indian jungle emerging through bamboo thickets. Intricately carved muscles, piercing gaze, and iconic striping.",
-    "image": "images/products/wall_tiger.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "High-relief projecting head & paws",
-      "Realistic fur & whisker texture",
-      "Commanding presence"
-    ]
-  },
-  {
-    "id": "nature-08",
+    "id": "nature-03",
     "title": "Royal Bengal Tiger Wall Sculpture (Model 2 Stalking)",
     "category": "nature",
     "collection": "Nature's Collection",
@@ -985,7 +885,7 @@ const CATALOG_DATA = [
     "finish": "Rich Satin Teak Polish",
     "dimensions": "30\" W x 20\" H x 4\" Depth",
     "weight": "7.1 kg",
-    "pages": "Pages 74-75",
+    "pages": "Plate 43",
     "description": "Dynamic profile of the Royal Bengal Tiger in stalking stance, expressing raw majesty, courage, and focused determination.",
     "image": "images/products/wall_tiger_wall_tiger_2.jpg",
     "etsyUrl": "https://madhurihandicraft.etsy.com",
@@ -996,47 +896,7 @@ const CATALOG_DATA = [
     ]
   },
   {
-    "id": "nature-09",
-    "title": "Majestic Forest Spotted Deer Hand-Carved Sculpture",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Gentle Harmony",
-    "material": "Indian Teakwood",
-    "finish": "Warm Golden Wax Polish",
-    "dimensions": "16\" H x 12\" W x 5\" D",
-    "weight": "3.2 kg",
-    "pages": "Pages 76-77",
-    "description": "Graceful Indian Chital deer carved with alert posture, slender legs, and lifelike branching antlers.",
-    "image": "images/products/deer.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "Delicate antler chiseling",
-      "Gentle soulful expression",
-      "Perfect for mantelpiece or console"
-    ]
-  },
-  {
-    "id": "nature-10",
-    "title": "Indian Gaur / Wild Bison Hand-Carved Sculpture",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Raw Power",
-    "material": "Dense Solid Teakwood",
-    "finish": "Deep Dark Walnut Tone",
-    "dimensions": "14\" H x 16\" W x 6\" D",
-    "weight": "4.7 kg",
-    "pages": "Pages 78-79",
-    "description": "A tribute to the formidable Indian Bison, embodying unyielding resilience, grounded stability, and raw natural power.",
-    "image": "images/products/bison.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "Muscular shoulder hump sculpting",
-      "Curved horn detail",
-      "Weighted stable base"
-    ]
-  },
-  {
-    "id": "nature-11",
+    "id": "nature-04",
     "title": "Himalayan Forest Bear Artisanal Wood Carving",
     "category": "nature",
     "collection": "Nature's Collection",
@@ -1045,7 +905,7 @@ const CATALOG_DATA = [
     "finish": "Dark Antique Charcoal Polish",
     "dimensions": "14\" H x 15\" W x 5.5\" D",
     "weight": "4.3 kg",
-    "pages": "Pages 80-81",
+    "pages": "Plate 44",
     "description": "Rugged yet charming depiction of the Indian black bear foraging peacefully amidst rocky slopes.",
     "image": "images/products/bear.jpg",
     "etsyUrl": "https://madhurihandicraft.etsy.com",
@@ -1053,106 +913,6 @@ const CATALOG_DATA = [
       "Textured fur engraving",
       "Solid weighty presence",
       "Artisan signed"
-    ]
-  },
-  {
-    "id": "nature-12",
-    "title": "River Mugger Crocodile Artisanal Teakwood Sculpture",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Ancient Reptilia",
-    "material": "Seasoned Teakwood Single Billet",
-    "finish": "Lustrous Honey Brown",
-    "dimensions": "22\" Length x 7\" W x 4\" H",
-    "weight": "3.5 kg",
-    "pages": "Pages 82-83",
-    "description": "Intricate scute-by-scute scale carvings along the body, capturing the primordial stealth and survival strength of the river crocodile.",
-    "image": "images/products/crocodile.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "Individually textured armor scales",
-      "Streamlined sinuous body",
-      "Unique conversation piece"
-    ]
-  },
-  {
-    "id": "nature-13",
-    "title": "Royal Elephant Forest Panorama (Model 1)",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Wildlife Heritage",
-    "material": "Select Indian Teakwood",
-    "finish": "Deep Walnut & Amber Wax",
-    "dimensions": "30\" W x 18\" H x 3\" Depth",
-    "weight": "7.2 kg",
-    "pages": "Plate 53",
-    "description": "Breathtaking panoramic forest relief capturing a matriarch elephant and calf navigating through deep wilderness canopy.",
-    "image": "images/products/elephant_scenery_model_1.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "Layered multi-depth perspective",
-      "Realistic jungle foliage carving",
-      "Symbol of peace and good fortune"
-    ]
-  },
-  {
-    "id": "nature-14",
-    "title": "Deep Wilderness Wildlife Panorama (Edition 1)",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Jungle Sanctuary",
-    "material": "Solid Teakwood",
-    "finish": "Matt Natural Earth Polish",
-    "dimensions": "32\" W x 18\" H x 3\" Depth",
-    "weight": "7.5 kg",
-    "pages": "Plate 54",
-    "description": "Detailed three-dimensional forest relief depicting deer, birds, and ancient trees in harmonious ecosystem harmony.",
-    "image": "images/products/nature_scenery_nature_scenery_1.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "Rich textural tree bark & foliage",
-      "Hand-chiseled wildlife figures",
-      "Wall accent for executive spaces"
-    ]
-  },
-  {
-    "id": "nature-15",
-    "title": "Surya 7 Running Horses Vastu Board Relief",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Vastu Energy",
-    "material": "Solid Teakwood Single Slab",
-    "finish": "Burnished Golden Honey Finish",
-    "dimensions": "36\" W x 16\" H x 2.5\" Depth",
-    "weight": "7.8 kg",
-    "pages": "Plate 55",
-    "description": "Seven galloping stallions representing speed, success, and unstoppable forward momentum according to ancient Vastu Shastra.",
-    "image": "images/products/seven_horses_7_horse_board.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "Dynamic muscular horse anatomy",
-      "Flowing manes & tails in high relief",
-      "Premier corporate & home office decor"
-    ]
-  },
-  {
-    "id": "nature-16",
-    "title": "Royal Bengal Tiger 3D Wall Relief (Archival Edition 1)",
-    "category": "nature",
-    "collection": "Nature's Collection",
-    "tag": "Apex Predator",
-    "material": "Seasoned Indian Hardwood",
-    "finish": "Rich Earthy Dark Polish",
-    "dimensions": "28\" W x 18\" H x 3.5\" Depth",
-    "weight": "6.9 kg",
-    "pages": "Plate 56",
-    "description": "Powerful three-dimensional carving of the Royal Bengal Tiger emerging silently from the jungle grass, exuding regal authority.",
-    "image": "images/products/wall_tiger_wall_tiger_1.jpg",
-    "etsyUrl": "https://madhurihandicraft.etsy.com",
-    "features": [
-      "Muscular anatomical fidelity",
-      "Realistic bamboo and grass backdrop",
-      "Finished with moisture-resistant wax"
     ]
   },
   {
