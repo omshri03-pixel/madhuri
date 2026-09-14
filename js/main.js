@@ -4,6 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initImagePreloader();
+  initCollectionSliders();
   initModalHandlers();
   initShareFeatures();
   initSmoothInteractions();
@@ -24,6 +25,171 @@ function initImagePreloader() {
       });
     };
     img.src = fullSrc;
+  });
+}
+
+// Live Sliding Collection Masterpieces (Auto-sliding Showcase, Non-clickable)
+function initCollectionSliders() {
+  const slideshowTiles = document.querySelectorAll('.tile-slideshow[data-category]');
+  if (!slideshowTiles.length) return;
+
+  slideshowTiles.forEach((tile, tileIdx) => {
+    const category = tile.getAttribute('data-category');
+    let items = [];
+    if (typeof CATALOG_DATA !== 'undefined' && Array.isArray(CATALOG_DATA)) {
+      items = CATALOG_DATA.filter(item => item.category === category);
+    }
+
+    if (!items.length) {
+      if (category === 'deities') {
+        items = [
+          { image: 'images/products/adiyogi.jpg' },
+          { image: 'images/products/adiyogi_12_inch_teakwood.jpg' },
+          { image: 'images/products/jesus.jpg' },
+          { image: 'images/products/meditation_hanuman_12_inch_teakwood.jpg' },
+          { image: 'images/products/peacock_ganpati.jpg' },
+          { image: 'images/products/wall_ganesha.jpg' },
+          { image: 'images/products/wall_shiv.jpg' },
+          { image: 'images/products/adiyogi_12_inch_boxwood.jpg' },
+          { image: 'images/products/balaji_12_inch.jpg' },
+          { image: 'images/products/panchmukhi_hanuman_6_inch_boxwood.jpg' }
+        ];
+      } else if (category === 'nature') {
+        items = [
+          { image: 'images/products/elephant_scenery_model_2.jpg' },
+          { image: 'images/products/seven_horses_7_horse_teakwood.jpg' },
+          { image: 'images/products/wall_tiger_wall_tiger_2.jpg' },
+          { image: 'images/products/bear.jpg' }
+        ];
+      } else if (category === 'collectibles') {
+        items = [
+          { image: 'images/products/ashoka_stambh.jpg' },
+          { image: 'images/products/lotus_emblem.jpg' }
+        ];
+      }
+    }
+
+    const track = tile.querySelector('.tile-slider-track');
+    const countBadge = tile.querySelector('.slide-count');
+    if (!track) return;
+
+    const total = items.length;
+    const padTotal = total.toString().padStart(2, '0');
+
+    // Build slide items
+    track.innerHTML = '';
+    items.forEach((item) => {
+      const slide = document.createElement('div');
+      slide.className = 'tile-slide-item';
+      slide.style.backgroundImage = `url('${item.image}')`;
+      track.appendChild(slide);
+    });
+
+    // Add clone of first slide for seamless infinite forward sliding
+    const firstClone = document.createElement('div');
+    firstClone.className = 'tile-slide-item clone';
+    firstClone.style.backgroundImage = `url('${items[0].image}')`;
+    track.appendChild(firstClone);
+
+    let currentIndex = 0;
+    let isTransitioning = false;
+    let timer = null;
+
+    // Stagger slide timing across cards so they slide smoothly at different moments
+    const duration = 3400 + (tileIdx * 450);
+
+    function updateBadge(idx) {
+      if (!countBadge) return;
+      const displayIdx = (idx % total) + 1;
+      countBadge.textContent = `${displayIdx.toString().padStart(2, '0')} / ${padTotal}`;
+    }
+
+    function goToSlide(index, animate = true) {
+      if (animate) {
+        track.style.transition = 'transform 0.85s cubic-bezier(0.22, 1, 0.36, 1)';
+      } else {
+        track.style.transition = 'none';
+      }
+      track.style.transform = `translateX(-${index * 100}%)`;
+      currentIndex = index;
+      updateBadge(index);
+    }
+
+    function nextSlide() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex++;
+      goToSlide(currentIndex, true);
+    }
+
+    function prevSlide() {
+      if (isTransitioning) return;
+      if (currentIndex === 0) {
+        track.style.transition = 'none';
+        track.style.transform = `translateX(-${total * 100}%)`;
+        void track.offsetWidth;
+        currentIndex = total - 1;
+        goToSlide(currentIndex, true);
+      } else {
+        currentIndex--;
+        goToSlide(currentIndex, true);
+      }
+    }
+
+    track.addEventListener('transitionend', () => {
+      isTransitioning = false;
+      // When reaching the clone slide at end, snap silently to slide 0 without transition
+      if (currentIndex >= total) {
+        track.style.transition = 'none';
+        currentIndex = 0;
+        track.style.transform = 'translateX(0%)';
+        void track.offsetWidth;
+      }
+    });
+
+    function startTimer() {
+      stopTimer();
+      timer = setInterval(nextSlide, duration);
+    }
+
+    function stopTimer() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    startTimer();
+
+    // Pause on desktop hover
+    tile.addEventListener('mouseenter', stopTimer);
+    tile.addEventListener('mouseleave', startTimer);
+
+    // Touch Swipe support for smooth mobile swiping
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    tile.addEventListener('touchstart', (e) => {
+      stopTimer();
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    tile.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const diffX = touchStartX - touchEndX;
+      const diffY = touchStartY - touchEndY;
+
+      if (Math.abs(diffX) > 30 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+      startTimer();
+    }, { passive: true });
   });
 }
 
