@@ -64,18 +64,55 @@
     <div class="meta" id="heroMeta">
       <span><b id="metaCount">16</b> Masterpieces</span>
       <span><b>Teakwood</b> Heritage</span>
-      <span><b>Scroll</b> to view</span>
-    </div>
-
-    <div class="scroll-cue">
-      <div class="line"></div>
-      <span>Scroll</span>
+      <span><b>Auto-Sliding</b> Showcase</span>
     </div>
   </section>
 
-  <!-- Full Editorial Spreads Gallery -->
-  <main class="gallery" id="gallery">
-    <!-- Spreads injected dynamically by JavaScript -->
+  <!-- Cinema Auto-Sliding Gallery Showcase -->
+  <main class="slider-stage-section" id="sliderStage">
+    <div class="slider-container">
+      
+      <!-- Slide Progress Bar (animates during auto-slide) -->
+      <div class="slider-progress-bar">
+        <div class="slider-progress-fill" id="slideProgressFill"></div>
+      </div>
+
+      <!-- Slider Viewport -->
+      <div class="slider-viewport" id="sliderViewport">
+        <div class="slider-track" id="sliderTrack">
+          <!-- Slides injected dynamically by JavaScript -->
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="slider-nav-btn prev-btn" id="prevSlideBtn" aria-label="Previous Masterpiece" title="Previous Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="slider-nav-btn next-btn" id="nextSlideBtn" aria-label="Next Masterpiece" title="Next Slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <!-- Slider Controls & Info Toolbar -->
+      <div class="slider-toolbar">
+        <div class="slider-toolbar-left">
+          <button class="slider-play-btn" id="playPauseBtn" title="Toggle Auto-sliding">
+            <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+            <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span id="playPauseText">Auto-Sliding</span>
+          </button>
+        </div>
+
+        <!-- Dots Pagination -->
+        <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Masterpiece Pagination">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <div class="slider-toolbar-right">
+          <span class="slide-indicator" id="slideIndicator">01 / 16</span>
+        </div>
+      </div>
+
+    </div>
   </main>
 
   <!-- Closing Section -->
@@ -103,17 +140,27 @@
   <script>
     let activeCategory = 'all';
     let currentItems = [];
-    let frameElements = [];
+    let currentIndex = 0;
+    let autoSlideTimer = null;
+    let isAutoPlaying = true;
+    let isHovered = false;
+    const SLIDE_DURATION = 4200; // 4.2 seconds per slide
 
-    const gallery = document.getElementById('gallery');
+    const sliderTrack = document.getElementById('sliderTrack');
+    const sliderDots = document.getElementById('sliderDots');
+    const slideIndicator = document.getElementById('slideIndicator');
+    const slideProgressFill = document.getElementById('slideProgressFill');
     const counter = document.getElementById('counter');
     const header = document.getElementById('siteHeader');
-    const railFill = document.getElementById('railFill');
-    const railDot = document.getElementById('railDot');
     const metaCount = document.getElementById('metaCount');
     const filterTabs = document.querySelectorAll('.lookbook-tab');
-    const headerDlBtn = document.getElementById('headerDlBtn');
-    const closingDlBtn = document.getElementById('closingDlBtn');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const pauseIcon = document.getElementById('pauseIcon');
+    const playIcon = document.getElementById('playIcon');
+    const playPauseText = document.getElementById('playPauseText');
+    const prevSlideBtn = document.getElementById('prevSlideBtn');
+    const nextSlideBtn = document.getElementById('nextSlideBtn');
+    const sliderViewport = document.getElementById('sliderViewport');
     const closingMark = document.getElementById('closingMark');
     const closingSub = document.getElementById('closingSub');
 
@@ -136,30 +183,13 @@
       }
     };
 
-    function updateDownloadButtons(cat) {
+    function updateCategoryText(cat) {
       const config = CATEGORY_PDF_CONFIG[cat] || CATEGORY_PDF_CONFIG.all;
-      if (headerDlBtn) {
-        headerDlBtn.href = config.file;
-        headerDlBtn.download = config.downloadName;
-        headerDlBtn.title = config.title;
-        const span = headerDlBtn.querySelector('span');
-        if (span) span.textContent = config.headerLabel;
-      }
-      if (closingDlBtn) {
-        closingDlBtn.href = config.file;
-        closingDlBtn.download = config.downloadName;
-        const span = closingDlBtn.querySelector('span');
-        if (span) span.textContent = config.closingLabel;
-      }
-      if (closingMark) {
-        closingMark.innerHTML = config.markHtml;
-      }
-      if (closingSub) {
-        closingSub.textContent = config.subText;
-      }
+      if (closingMark) closingMark.innerHTML = config.markHtml;
+      if (closingSub) closingSub.textContent = config.subText;
     }
 
-    // Initialize Lookbook
+    // Initialize Lookbook Slider
     document.addEventListener('DOMContentLoaded', () => {
       // Check query parameter for initial filter
       const urlParams = new URLSearchParams(window.location.search);
@@ -189,9 +219,10 @@
       }
 
       setupFilterEvents();
-      renderLookbook();
-      setupScrollEngine();
+      setupSliderGestures();
+      setupHeaderScroll();
       setupBackToTop();
+      loadCategoryItems();
     });
 
     function setupFilterEvents() {
@@ -203,33 +234,35 @@
           activeCategory = cat;
           filterTabs.forEach(t => t.classList.toggle('active', t === tab));
 
-          // Update URL without reload
           const newUrl = cat === 'all' ? window.location.pathname : `${window.location.pathname}?category=${cat}`;
           window.history.replaceState({}, '', newUrl);
 
-          renderLookbook();
-
-          // Scroll smoothly to top of gallery
-          gallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          loadCategoryItems();
         });
       });
     }
 
-    function renderLookbook() {
+    function loadCategoryItems() {
       if (typeof CATALOG_DATA === 'undefined') return;
 
-      updateDownloadButtons(activeCategory);
+      updateCategoryText(activeCategory);
 
       currentItems = activeCategory === 'all' 
         ? CATALOG_DATA 
         : CATALOG_DATA.filter(item => item.category === activeCategory);
 
-      const total = currentItems.length;
-      counter.textContent = `01 / ${String(total).padStart(2, '0')}`;
-      if (metaCount) metaCount.textContent = total;
+      currentIndex = 0;
+      renderSlider();
+      startAutoSlide();
+    }
 
-      gallery.innerHTML = '';
-      const frag = document.createDocumentFragment();
+    function renderSlider() {
+      if (!sliderTrack) return;
+      sliderTrack.innerHTML = '';
+      if (sliderDots) sliderDots.innerHTML = '';
+      const total = currentItems.length;
+
+      if (metaCount) metaCount.textContent = total;
 
       currentItems.forEach((item, index) => {
         const pageNum = index + 1;
@@ -237,98 +270,215 @@
         const totalStr = String(total).padStart(2, '0');
         const waMsg = encodeURIComponent(`Hello Madhuri Furniture! I am inquiring about: ${item.title} (${item.material})`);
 
-        const spread = document.createElement('section');
-        spread.className = 'spread';
-        spread.innerHTML = `
-          <div class="frame" data-index="${pageNum}">
-            <div class="frame-media-box">
-              <img 
-                src="${item.image}" 
-                alt="${item.title}" 
-                loading="${pageNum <= 3 ? 'eager' : 'lazy'}"
-                onerror="this.src='images/hero_deities.jpg'"
-              >
+        // Slide
+        const slide = document.createElement('div');
+        slide.className = 'slide-item';
+        slide.setAttribute('data-index', index);
+        slide.innerHTML = `
+          <div class="slide-media-box">
+            <img 
+              src="${item.image}" 
+              alt="${item.title}" 
+              loading="${index <= 1 ? 'eager' : 'lazy'}"
+              onerror="this.src='images/hero_deities.jpg'"
+            >
+          </div>
+          <div class="slide-plate">
+            <span class="slide-num">${pageStr} / ${totalStr}</span>
+            <div class="slide-info">
+              <h3 class="slide-title">${item.title}</h3>
+              <span class="slide-meta">${item.material} · ${item.dimensions || item.collection}</span>
             </div>
-            <div class="plate">
-              <span class="num">${pageStr} / ${totalStr}</span>
-              <div class="cap-info">
-                <span class="cap-title">${item.title}</span>
-                <span class="cap-meta">${item.material} · ${item.dimensions || item.collection}</span>
-              </div>
-              <a class="cap-action" href="https://wa.me/919713433933?text=${waMsg}" target="_blank" rel="noopener" title="Inquire on WhatsApp">
-                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                  <path d="M12.01 2.01c-5.5 0-9.98 4.47-9.98 9.97 0 1.76.46 3.48 1.33 5l-1.42 5.18 5.3-1.39c1.47.8 3.12 1.22 4.77 1.22 5.5 0 9.98-4.48 9.98-9.98 0-2.66-1.04-5.17-2.92-7.05A9.92 9.92 0 0 0 12.01 2.01z"/>
-                </svg>
-                <span>Inquire</span>
-              </a>
-            </div>
+            <a class="slide-action" href="https://wa.me/919713433933?text=${waMsg}" target="_blank" rel="noopener" title="Inquire on WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.01 2.01c-5.5 0-9.98 4.47-9.98 9.97 0 1.76.46 3.48 1.33 5l-1.42 5.18 5.3-1.39c1.47.8 3.12 1.22 4.77 1.22 5.5 0 9.98-4.48 9.98-9.98 0-2.66-1.04-5.17-2.92-7.05A9.92 9.92 0 0 0 12.01 2.01z"/></svg>
+              <span>Inquire</span>
+            </a>
           </div>
         `;
-        frag.appendChild(spread);
+        sliderTrack.appendChild(slide);
+
+        // Dot
+        if (sliderDots) {
+          const dot = document.createElement('button');
+          dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+          dot.setAttribute('aria-label', `Go to slide ${pageNum}`);
+          dot.addEventListener('click', () => {
+            goToSlide(index);
+            resetAutoSlideTimer();
+          });
+          sliderDots.appendChild(dot);
+        }
       });
 
-      gallery.appendChild(frag);
-
-      // Setup IntersectionObserver for reveal on scroll
-      frameElements = Array.from(document.querySelectorAll('.frame'));
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-          }
-        });
-      }, { threshold: 0.12 });
-
-      frameElements.forEach(frame => io.observe(frame));
+      goToSlide(0);
     }
 
-    function setupScrollEngine() {
-      let ticking = false;
+    function goToSlide(index) {
+      const total = currentItems.length;
+      if (total === 0) return;
 
-      function onScroll() {
-        if (ticking) return;
-        ticking = true;
+      if (index < 0) {
+        currentIndex = total - 1;
+      } else if (index >= total) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
 
-        requestAnimationFrame(() => {
-          // Header scrolled style
-          if (header) {
-            header.classList.toggle('scrolled', window.scrollY > 40);
-          }
+      if (sliderTrack) {
+        sliderTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
 
-          // Rail Progress Fill & Dot
-          const doc = document.documentElement;
-          const scrollable = doc.scrollHeight - window.innerHeight;
-          const progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+      // Update dots
+      if (sliderDots) {
+        const dots = sliderDots.querySelectorAll('.slider-dot');
+        dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+      }
 
-          if (railFill) railFill.style.height = (progress * 100) + '%';
-          if (railDot) railDot.style.top = (progress * 100) + '%';
+      updateCounter();
+      resetProgress();
+    }
 
-          // Center-based page counter tracking
-          if (frameElements.length > 0 && counter) {
-            let current = 1;
-            const centerY = window.innerHeight / 2;
-            let minDistance = Infinity;
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
 
-            frameElements.forEach(frame => {
-              const rect = frame.getBoundingClientRect();
-              const frameCenter = (rect.top + rect.bottom) / 2;
-              const dist = Math.abs(frameCenter - centerY);
-              if (dist < minDistance) {
-                minDistance = dist;
-                current = parseInt(frame.dataset.index, 10);
-              }
-            });
+    function prevSlide() {
+      goToSlide(currentIndex - 1);
+    }
 
-            const total = currentItems.length || 58;
-            counter.textContent = `${String(current).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
-          }
+    function updateCounter() {
+      const total = currentItems.length || 1;
+      const str = `${String(currentIndex + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+      if (counter) counter.textContent = str;
+      if (slideIndicator) slideIndicator.textContent = str;
+    }
 
-          ticking = false;
+    function resetProgress() {
+      if (!slideProgressFill) return;
+      slideProgressFill.style.transition = 'none';
+      slideProgressFill.style.width = '0%';
+      void slideProgressFill.offsetWidth; // force reflow
+      if (isAutoPlaying && !isHovered) {
+        slideProgressFill.style.transition = `width ${SLIDE_DURATION}ms linear`;
+        slideProgressFill.style.width = '100%';
+      }
+    }
+
+    function startAutoSlide() {
+      stopAutoSlide();
+      if (!isAutoPlaying || isHovered) return;
+
+      resetProgress();
+      autoSlideTimer = setInterval(() => {
+        nextSlide();
+      }, SLIDE_DURATION);
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = null;
+      }
+      if (slideProgressFill && (isHovered || !isAutoPlaying)) {
+        const computed = window.getComputedStyle(slideProgressFill).width;
+        slideProgressFill.style.transition = 'none';
+        slideProgressFill.style.width = computed;
+      }
+    }
+
+    function resetAutoSlideTimer() {
+      if (isAutoPlaying && !isHovered) {
+        startAutoSlide();
+      }
+    }
+
+    function togglePlayPause() {
+      isAutoPlaying = !isAutoPlaying;
+      if (isAutoPlaying) {
+        if (pauseIcon) pauseIcon.style.display = 'block';
+        if (playIcon) playIcon.style.display = 'none';
+        if (playPauseText) playPauseText.textContent = 'Auto-Sliding';
+        startAutoSlide();
+      } else {
+        if (pauseIcon) pauseIcon.style.display = 'none';
+        if (playIcon) playIcon.style.display = 'block';
+        if (playPauseText) playPauseText.textContent = 'Paused';
+        stopAutoSlide();
+      }
+    }
+
+    function setupSliderGestures() {
+      if (!sliderViewport) return;
+
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      sliderViewport.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        isHovered = true;
+        stopAutoSlide();
+      }, { passive: true });
+
+      sliderViewport.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        isHovered = false;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) nextSlide();
+          else prevSlide();
+        }
+        startAutoSlide();
+      }, { passive: true });
+
+      // Pause on hover
+      sliderViewport.addEventListener('mouseenter', () => {
+        isHovered = true;
+        stopAutoSlide();
+      });
+
+      sliderViewport.addEventListener('mouseleave', () => {
+        isHovered = false;
+        startAutoSlide();
+      });
+
+      // Navigation buttons
+      if (prevSlideBtn) {
+        prevSlideBtn.addEventListener('click', () => {
+          prevSlide();
+          resetAutoSlideTimer();
         });
       }
 
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
+      if (nextSlideBtn) {
+        nextSlideBtn.addEventListener('click', () => {
+          nextSlide();
+          resetAutoSlideTimer();
+        });
+      }
+
+      if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', togglePlayPause);
+      }
+
+      // Keyboard left/right arrow navigation
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+          nextSlide();
+          resetAutoSlideTimer();
+        } else if (e.key === 'ArrowLeft') {
+          prevSlide();
+          resetAutoSlideTimer();
+        }
+      });
+    }
+
+    function setupHeaderScroll() {
+      window.addEventListener('scroll', () => {
+        if (header) {
+          header.classList.toggle('scrolled', window.scrollY > 40);
+        }
+      }, { passive: true });
     }
 
     function setupBackToTop() {
