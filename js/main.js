@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModalHandlers();
   initShareFeatures();
   initSmoothInteractions();
+  initServiceWorker();
 });
 
 // Image Blur-up & Preloader
@@ -388,4 +389,64 @@ END:VCARD`;
   }
 }
 window.downloadVCard = downloadVCard;
+
+// ==========================================================================
+// SERVICE WORKER REGISTRATION & OFFLINE-FIRST ARCHITECTURE (PWA)
+// ==========================================================================
+function initServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then((reg) => {
+          // Check for background updates
+          reg.onupdatefound = () => {
+            const installingWorker = reg.installing;
+            if (!installingWorker) return;
+            installingWorker.onstatechange = () => {
+              if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                console.log('[SW] New version ready.');
+              }
+            };
+          };
+        })
+        .catch((err) => {
+          console.warn('[SW] Registration failed:', err);
+        });
+    });
+  }
+
+  // Network connection status listeners
+  window.addEventListener('offline', () => {
+    showOfflineToast(true);
+  });
+
+  window.addEventListener('online', () => {
+    showOfflineToast(false);
+  });
+
+  // Initial check
+  if (!navigator.onLine) {
+    showOfflineToast(true);
+  }
+}
+
+function showOfflineToast(isOffline) {
+  const badge = document.getElementById('offlineBadge');
+  const dot = document.getElementById('offlineDot');
+  const msg = document.getElementById('offlineMsg');
+  if (!badge) return;
+
+  if (isOffline) {
+    if (dot) dot.className = 'offline-dot';
+    if (msg) msg.textContent = 'Offline Mode Active · Masterpieces Cached';
+    badge.classList.add('visible');
+  } else {
+    if (dot) dot.className = 'offline-dot online';
+    if (msg) msg.textContent = 'Back Online · Synchronized';
+    badge.classList.add('visible');
+    setTimeout(() => {
+      badge.classList.remove('visible');
+    }, 3200);
+  }
+}
 

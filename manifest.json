@@ -1,0 +1,26 @@
+{
+  "name": "Madhuri Furniture — Master Artisans Since 1983",
+  "short_name": "Madhuri Furniture",
+  "description": "Exquisite handcrafted teakwood deities, wildlife panels, vastu sculptures & collectibles since 1983.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080706",
+  "theme_color": "#080706",
+  "categories": ["lifestyle", "shopping"],
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/madhuri_crest.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

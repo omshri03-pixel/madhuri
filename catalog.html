@@ -7,6 +7,7 @@
   <meta name="description" content="Explore all 58 archival masterworks in solid teakwood and sacred boxwood — handcrafted deities, nature reliefs, wildlife sculptures, and national heritage emblems.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#080706">
+  <link rel="manifest" href="manifest.json">
 
   <!-- Google Fonts: Fraunces, Cinzel & Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -489,6 +490,12 @@
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
+    }
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
     }
   </script>
 </body>

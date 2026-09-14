@@ -9,12 +9,14 @@
   <meta name="theme-color" content="#0c0b09">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Madhuri Handicrafts">
+  <meta name="apple-mobile-web-app-title" content="Madhuri Furniture">
+  <link rel="manifest" href="manifest.json">
 
   <!-- Preload Critical Hero Imagery -->
-  <link rel="preload" as="image" href="images/brass_heritage.jpg">
-  <link rel="preload" as="image" href="images/wooden_craft.jpg">
-  <link rel="preload" as="image" href="images/festive_spiritual.jpg">
+  <link rel="preload" as="image" href="images/madhuri_crest.png">
+  <link rel="preload" as="image" href="images/hero_deities.jpg">
+  <link rel="preload" as="image" href="images/hero_nature.jpg">
+  <link rel="preload" as="image" href="images/hero_collectibles.jpg">
 
   <!-- Google Fonts: Fraunces, Cinzel, Manrope -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -444,6 +446,12 @@
   </div>
 
 
+
+  <!-- Offline Mode Live Indicator -->
+  <div class="offline-badge" id="offlineBadge" aria-live="polite">
+    <span class="offline-dot" id="offlineDot"></span>
+    <span id="offlineMsg">Offline Mode Active · Masterpieces Cached</span>
+  </div>
 
   <!-- Scripts -->
   <script src="js/catalog-data.js"></script>
