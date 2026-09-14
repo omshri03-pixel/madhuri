@@ -100,7 +100,7 @@ function populateModal(categoryKey) {
 
   if (modalWhatsAppBtn) {
     const text = encodeURIComponent(`Namaste Madhuri Handicrafts! I am inquiring about "${item.title}" from your 2026 digital catalog.`);
-    modalWhatsAppBtn.href = `https://wa.me/919627606000?text=${text}`;
+    modalWhatsAppBtn.href = `https://wa.me/919713433933?text=${text}`;
   }
 }
 
@@ -200,7 +200,7 @@ FN:Mr. Ankush Rai
 ORG:Madhuri Furniture
 TITLE:Owner
 TEL;TYPE=CELL,VOICE,PREF:+919713433933
-TEL;TYPE=WORK,VOICE:+919627606000
+TEL;TYPE=WORK,VOICE:+919713433933
 EMAIL;TYPE=WORK,INTERNET:madhurifurniture1983@gmail.com
 URL;TYPE=WORK:https://www.madhurifurniture.in
 URL;TYPE=X-ETSY:https://madhurihandicraft.etsy.com

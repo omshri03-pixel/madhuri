@@ -10,7 +10,7 @@ Official brand website and digital lookbook platform for **Madhuri Furniture / H
 - **Complete Omnichannel Integration**:
   - Etsy: Global Storefront (`madhurihandicraft.etsy.com`)
   - Google Business: Verified Profile & Location
-  - WhatsApp: Direct Order & Commission Enquiry (+91 9627606000)
+  - WhatsApp: Direct Order & Commission Enquiry (+91 9713433933)
   - Instagram: `@madhurihandicrafts`
   - YouTube: `@madhurihandicrafts`
   - Facebook: Official Page

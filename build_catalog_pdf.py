@@ -158,7 +158,7 @@ def create_cover_page(cat_key, cat_title, count):
         cur_y += 38
 
     # Contact footer on cover
-    footer_text = "Direct Artisan Desk: WhatsApp +91 9627606000  ·  Etsy: madhurihandicraft.etsy.com"
+    footer_text = "Direct Artisan Desk: WhatsApp +91 9713433933  ·  Etsy: madhurihandicraft.etsy.com"
     bbox = draw.textbbox((0, 0), footer_text, font=FONT_BODY)
     draw.text(((PAGE_W - (bbox[2] - bbox[0])) // 2, 1600), footer_text, font=FONT_BODY, fill=C_GOLD)
 
@@ -231,7 +231,7 @@ def create_product_page(item, page_idx, total_pages, category_title="THE MASTERC
         dy += 28
 
     # Inquiry footer
-    inquiry_text = f"Direct Inquiry / Custom Commission: WhatsApp +91 9627606000  ·  Etsy: madhurihandicraft.etsy.com"
+    inquiry_text = f"Direct Inquiry / Custom Commission: WhatsApp +91 9713433933  ·  Etsy: madhurihandicraft.etsy.com"
     draw.line([(card_x + 30, card_y + 300), (card_x + card_w - 30, card_y + 300)], fill=(70, 56, 40), width=1)
     draw.text((card_x + 30, card_y + 318), inquiry_text, font=FONT_SMALL, fill=C_GOLD)
 
@@ -277,7 +277,7 @@ def create_back_cover(cat_title):
         "by master craftsmen carrying forward ancestral woodcraft heritage.",
         "",
         "DIRECT ARTISAN DESK & GLOBAL COMMISSIONS",
-        "Phone / WhatsApp: +91 9627606000",
+        "Phone / WhatsApp: +91 9713433933",
         "Official Online Store: madhurihandicraft.etsy.com",
         "Workshop & Gallery: Saharanpur, Uttar Pradesh, India",
         "",
