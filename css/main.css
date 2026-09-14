@@ -297,7 +297,7 @@ button {
 }
 
 .hub-header .tagline {
-  margin-top: 8px;
+  margin-top: 3px;
   font-size: clamp(9px, 1.4vw, 11px);
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -693,9 +693,40 @@ button {
 }
 
 @media (max-width: 540px) {
+  .hub {
+    padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)) !important;
+  }
+
+  .hub-topbar {
+    padding-bottom: 8px !important;
+  }
+
+  .hub-header {
+    padding: 6px 4px 10px !important;
+    gap: 12px !important;
+  }
+
+  .hub-brand-crest-wrap {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 12px !important;
+    padding: 3px !important;
+  }
+
+  .hub-header .wordmark {
+    font-size: 18.5px !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  .hub-header .tagline {
+    font-size: 8px !important;
+    letter-spacing: 0.11em !important;
+    margin-top: 2px !important;
+  }
+
   .hub-cards-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 8px !important;
   }
 
   .hub-social-matrix {
@@ -959,7 +990,7 @@ button {
 }
 
 .vcard-crest-wrapper {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .vcard-crest-img {
@@ -1000,7 +1031,7 @@ button {
   font-weight: 600;
   letter-spacing: 0.46em;
   color: #dfb76c;
-  margin-top: 3px;
+  margin-top: 1px;
 }
 
 .vcard-brand-est {
@@ -1013,7 +1044,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 14px;
-  margin-top: 10px;
+  margin-top: 4px;
 }
 
 .vcard-dash {
@@ -2074,16 +2105,69 @@ button {
     background: radial-gradient(circle, rgba(217, 173, 109, 0.34) 0%, rgba(170, 95, 30, 0.15) 50%, transparent 75%) !important;
   }
 
-  /* Luxury card presence on mobile for Category & Flagship tiles */
-  .hub-cards-grid > .tile:not(.hub-social-matrix .tile) {
-    border-radius: 16px;
+  /* Category Tiles on Mobile: Compact & sleek so all 3 fit immediately on load without scrolling */
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) {
+    border-radius: 14px !important;
     border: 1px solid rgba(217, 173, 109, 0.28) !important;
     background: linear-gradient(135deg, rgba(32, 25, 18, 0.78) 0%, rgba(18, 14, 10, 0.88) 100%) !important;
     box-shadow: 
-      0 14px 34px -8px rgba(0, 0, 0, 0.85),
-      0 0 18px rgba(217, 173, 109, 0.08),
+      0 10px 24px -6px rgba(0, 0, 0, 0.85),
+      0 0 16px rgba(217, 173, 109, 0.08),
       inset 0 1px 1.5px rgba(255, 255, 255, 0.28) !important;
-    min-height: 215px !important;
+    min-height: clamp(88px, 12vh, 104px) !important;
+  }
+
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) .tile-content {
+    padding: 10px 14px !important;
+    gap: 2px !important;
+    max-width: 82% !important;
+  }
+
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) .tile-kicker {
+    font-size: 7.5px !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) .tile-title {
+    font-size: 16.5px !important;
+    line-height: 1.15 !important;
+  }
+
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) .tile-meta {
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+  }
+
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) .tile-arrow {
+    top: 9px !important;
+    right: 9px !important;
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  /* Flagship Etsy Card on Mobile */
+  .hub-cards-grid > .tile.etsy-flagship-card {
+    border-radius: 16px !important;
+    border: 1px solid rgba(217, 173, 109, 0.35) !important;
+    min-height: 185px !important;
+    box-shadow: 
+      0 14px 34px -8px rgba(0, 0, 0, 0.85),
+      0 0 18px rgba(217, 173, 109, 0.12),
+      inset 0 1px 1.5px rgba(255, 255, 255, 0.28) !important;
+  }
+
+  .hub-cards-grid > .tile.etsy-flagship-card .tile-content {
+    padding: 16px 14px !important;
+    gap: 6px !important;
+  }
+
+  .hub-cards-grid > .tile.etsy-flagship-card .etsy-card-btn {
+    padding: 10px 20px !important;
+    font-size: 13.5px !important;
   }
 
   /* Vibrant, Luminous Jewel-Tone Social Cards on Mobile Screens */

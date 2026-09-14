@@ -203,9 +203,7 @@ TEL;TYPE=CELL,VOICE,PREF:+919713433933
 TEL;TYPE=WORK,VOICE:+919713433933
 EMAIL;TYPE=WORK,INTERNET:madhurifurniture1983@gmail.com
 URL;TYPE=WORK:https://www.madhurifurniture.in
-URL;TYPE=X-ETSY:https://madhurihandicraft.etsy.com
 ADR;TYPE=WORK:;;Shobhapur Road Tiraha;Pipariya;Madhya Pradesh;461775;India
-NOTE:Madhuri Furniture (Since 1983) | Founder: Late Mr. Anil Rai | Owner: Mr. Ankush Rai. Manufacturers & Sales, Teak Wood Furnitures, Wood Handicrafts, Saw Mill, Wood Traders.
 END:VCARD`;
 
   try {
