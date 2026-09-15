@@ -1177,7 +1177,7 @@ button {
   grid-template-columns: minmax(0, 1.34fr) minmax(0, 0.88fr);
   gap: clamp(24px, 4.5vw, 38px);
   padding: clamp(24px, 4.5vw, 36px) clamp(22px, 4.5vw, 36px);
-  align-items: start;
+  align-items: stretch;
 }
 
 /* Executive Leaders: Mr. Ankush Rai (Owner) & Late Mr. Anil Rai (Founder) */
@@ -1385,10 +1385,19 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 22px;
+  height: 100%;
+}
+
+.vcard-actions {
+  order: 1;
+  width: 100%;
+  max-width: 280px;
 }
 
 .vcard-qr-box {
+  order: 2;
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1660,10 +1669,15 @@ button {
     padding-top: 16px;
     border-top: 1px dashed rgba(217, 173, 109, 0.18);
     width: 100%;
+    height: auto;
   }
 
   .vcard-actions {
     max-width: 100%;
+  }
+
+  .vcard-qr-box {
+    margin-top: 6px;
   }
 }
 

@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css?v=2.2">
 </head>
 <body>
 
@@ -348,8 +348,22 @@
             </div>
           </div>
 
-          <!-- Right Column: Gold QR Code & Quick Actions -->
+          <!-- Right Column: Actions Top & Gold QR Code Below -->
           <div class="vcard-secondary">
+            <!-- Quick Action Hub -->
+            <div class="vcard-actions">
+              <button type="button" class="vcard-action-btn vcard-save-btn" onclick="downloadVCard()" title="Save Ankush Rai to Phone Contacts">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <span>Save Contact</span>
+              </button>
+
+              <a class="vcard-action-btn vcard-review-btn" href="https://g.page/r/CWXWb6N7OUyYEAE/review" target="_blank" rel="noopener" title="Write a Google Review">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                <span>Write a Review</span>
+              </a>
+            </div>
+
+            <!-- Gold QR Code (Below in PC & Mobile) -->
             <div class="vcard-qr-box">
               <a href="images/visiting_qr.png" download="Madhuri_Furniture_Ankush_Rai_QR.png" class="vcard-qr-frame" title="Click or Tap to Download QR Code" onclick="if(window.showToast)showToast('Downloading QR Code image...')">
                 <span class="qr-corner top-left"></span>
@@ -366,19 +380,6 @@
                 <span class="qr-tag">DIGITAL BUSINESS CARD</span>
                 <span class="qr-hint">Scan with Camera or Tap QR to Download</span>
               </div>
-            </div>
-
-            <!-- Quick Action Hub -->
-            <div class="vcard-actions">
-              <button type="button" class="vcard-action-btn vcard-save-btn" onclick="downloadVCard()" title="Save Ankush Rai to Phone Contacts">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-                <span>Save Contact</span>
-              </button>
-
-              <a class="vcard-action-btn vcard-review-btn" href="https://g.page/r/CWXWb6N7OUyYEAE/review" target="_blank" rel="noopener" title="Write a Google Review">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                <span>Write a Review</span>
-              </a>
             </div>
           </div>
 
@@ -454,7 +455,42 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/catalog-data.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/catalog-data.js?v=2.2"></script>
+  <script src="js/main.js?v=2.2"></script>
+  <script>
+    // Clean vCard export ensuring no external Etsy links or redundant notes
+    function downloadVCard() {
+      const vcard = 
+`BEGIN:VCARD
+VERSION:3.0
+N:Rai;Ankush;;Mr.;
+FN:Mr. Ankush Rai
+ORG:Madhuri Furniture
+TITLE:Owner
+TEL;TYPE=CELL,VOICE,PREF:+919713433933
+EMAIL;TYPE=WORK,INTERNET:madhurifurniture1983@gmail.com
+URL;TYPE=WORK:https://www.madhurifurniture.in
+ADR;TYPE=WORK:;;Shobhapur Road Tiraha;Pipariya;Madhya Pradesh;461775;India
+END:VCARD`;
+
+      try {
+        const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'Madhuri_Furniture_Ankush_Rai.vcf');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        if (typeof showToast === 'function') {
+          showToast('Visiting Card saved to Contacts (.vcf)');
+        }
+      } catch (err) {
+        window.open('tel:+919713433933');
+      }
+    }
+    window.downloadVCard = downloadVCard;
+  </script>
 </body>
 </html>

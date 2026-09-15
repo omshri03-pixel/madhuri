@@ -3,7 +3,7 @@
 // Guarantees 100% offline availability even without an internet connection.
 // ==========================================================================
 
-const CACHE_NAME = 'madhuri-furniture-v1';
+const CACHE_NAME = 'madhuri-furniture-v2';
 
 const STATIC_ASSETS = [
   './',
@@ -94,6 +94,22 @@ self.addEventListener('fetch', (event) => {
             return caches.match('./index.html');
           });
         })
+    );
+    return;
+  }
+
+  // For JavaScript & CSS: Network First so logic updates are received instantly
+  if (url.pathname.endsWith('.js') || url.pathname.endsWith('.css')) {
+    event.respondWith(
+      fetch(req)
+        .then((networkRes) => {
+          if (networkRes && networkRes.status === 200) {
+            const copy = networkRes.clone();
+            caches.open(CACHE_NAME).then((c) => c.put(req, copy));
+          }
+          return networkRes;
+        })
+        .catch(() => caches.match(req))
     );
     return;
   }

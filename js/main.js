@@ -367,7 +367,6 @@ FN:Mr. Ankush Rai
 ORG:Madhuri Furniture
 TITLE:Owner
 TEL;TYPE=CELL,VOICE,PREF:+919713433933
-TEL;TYPE=WORK,VOICE:+919713433933
 EMAIL;TYPE=WORK,INTERNET:madhurifurniture1983@gmail.com
 URL;TYPE=WORK:https://www.madhurifurniture.in
 ADR;TYPE=WORK:;;Shobhapur Road Tiraha;Pipariya;Madhya Pradesh;461775;India
