@@ -1395,19 +1395,21 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 22px;
+  gap: 16px;
   height: 100%;
+  justify-content: flex-end;
 }
 
 .vcard-actions {
   order: 1;
   width: 100%;
   max-width: 280px;
+  margin-top: auto;
 }
 
 .vcard-qr-box {
   order: 2;
-  margin-top: auto;
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1684,10 +1686,11 @@ button {
 
   .vcard-actions {
     max-width: 100%;
+    margin-top: 0;
   }
 
   .vcard-qr-box {
-    margin-top: 6px;
+    margin-top: 12px;
   }
 }
 
