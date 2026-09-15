@@ -814,10 +814,20 @@ button {
   }
 
   .hub-brand-crest-wrap {
-    width: 50px !important;
-    height: 50px !important;
-    border-radius: 12px !important;
-    padding: 3px !important;
+    width: clamp(68px, 18vw, 76px) !important;
+    height: clamp(68px, 18vw, 76px) !important;
+    min-width: clamp(68px, 18vw, 76px) !important;
+    border-radius: 16px !important;
+    padding: 4px !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 0 20px rgba(217, 173, 109, 0.3), 0 6px 16px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .hub-brand-crest {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 3px 8px rgba(217, 173, 109, 0.35)) drop-shadow(0 2px 5px rgba(0,0,0,0.7)) !important;
   }
 
   .hub-header .wordmark {
