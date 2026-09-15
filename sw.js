@@ -3,7 +3,7 @@
 // Guarantees 100% offline availability even without an internet connection.
 // ==========================================================================
 
-const CACHE_NAME = 'madhuri-furniture-v2';
+const CACHE_NAME = 'madhuri-furniture-v3';
 
 const STATIC_ASSETS = [
   './',

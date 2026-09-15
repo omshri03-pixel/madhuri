@@ -231,16 +231,16 @@ button {
   height: 13px;
 }
 
-/* Hub Header — Logo Left, Text Right Horizontal Layout */
+/* Hub Header — Logo Left, Text Right Horizontal Layout (Flush Edge-Aligned with Cards) */
 .hub-header {
   flex: 0 0 auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: left;
   gap: clamp(16px, 3.5vw, 24px);
-  padding: clamp(18px, 3.2vh, 32px) 10px clamp(24px, 4vh, 38px);
+  padding: clamp(18px, 3.2vh, 32px) 0 clamp(24px, 4vh, 38px);
   opacity: 0;
   animation: rise 0.8s var(--ease) 0.15s forwards;
   position: relative;
@@ -303,15 +303,8 @@ button {
   text-transform: uppercase;
   color: var(--gold);
   font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: block;
   opacity: 0.9;
-}
-
-.hub-header .tagline::before {
-  content: '—';
-  color: var(--bronze);
 }
 
 /* ==========================================================================
@@ -813,7 +806,8 @@ button {
   }
 
   .hub-header {
-    padding: 6px 4px 10px !important;
+    padding: 6px 0 10px !important;
+    justify-content: flex-start !important;
     gap: 12px !important;
   }
 
