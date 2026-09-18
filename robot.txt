@@ -1,9 +1,9 @@
 # ==============================================================================
-# MADHURI HANDICRAFTS (madhurihandicrafts.com) — ROBOTS.TXT
+# MADHURI HANDICRAFTS / FURNITURE (www.madhurifurniture.in) — ROBOTS.TXT
 # ==============================================================================
 
 User-agent: *
 Allow: /
 
-Sitemap: https://madhurihandicrafts.com/sitemap.xml
-Host: https://madhurihandicrafts.com
+Sitemap: https://www.madhurifurniture.in/sitemap.xml
+Host: https://www.madhurifurniture.in

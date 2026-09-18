@@ -1,5 +1,5 @@
 # ==============================================================================
-# MADHURI HANDICRAFTS (madhurihandicrafts.com) — ROBOTS.TXT
+# MADHURI HANDICRAFTS / FURNITURE (www.madhurifurniture.in) — ROBOTS.TXT
 # Master Artisans Since 1983 — Complete Crawling & Search Indexing Permissions
 # ==============================================================================
 
@@ -19,10 +19,17 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-User-agent: Baiduspider
+# Social & Messaging Scrapers
+User-agent: WhatsApp
 Allow: /
 
-User-agent: Yandex
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: TelegramBot
 Allow: /
 
 # AI & LLM Search Agents
@@ -51,5 +58,5 @@ User-agent: Meta-ExternalAgent
 Allow: /
 
 # Canonical XML Sitemap & Host Directives
-Sitemap: https://madhurihandicrafts.com/sitemap.xml
-Host: https://madhurihandicrafts.com
+Sitemap: https://www.madhurifurniture.in/sitemap.xml
+Host: https://www.madhurifurniture.in
