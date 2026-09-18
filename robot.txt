@@ -1,0 +1,9 @@
+# ==============================================================================
+# MADHURI HANDICRAFTS (madhurihandicrafts.com) — ROBOTS.TXT
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+Sitemap: https://madhurihandicrafts.com/sitemap.xml
+Host: https://madhurihandicrafts.com

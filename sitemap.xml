@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage & Master Hub -->
+  <url>
+    <loc>https://madhurihandicrafts.com/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/og-share-card.jpg</image:loc>
+      <image:title>Madhuri Handicrafts Luxury Masterpieces Showcase</image:title>
+      <image:caption>Curated Collection of Handcrafted Brass Idols, Antique Urulis &amp; Sacred Teakwood Temple Decor</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/madhuri_crest.png</image:loc>
+      <image:title>Madhuri Handicrafts Royal Gold Crest</image:title>
+      <image:caption>Official Brand Identity — Master Artisans Since 1983</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/wooden_craft.jpg</image:loc>
+      <image:title>Handcrafted Heritage Wooden Jharokha and Peacock Carving</image:title>
+      <image:caption>Archival Teakwood Jharokha with Intricate Peacock Relief</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/hero_deities.jpg</image:loc>
+      <image:title>Premium Hand-Carved Wooden Ganesha Idol</image:title>
+      <image:caption>Solid Boxwood and Teakwood Deities Collection</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/hero_nature.jpg</image:loc>
+      <image:title>Nature's Collection — Forest Elephant and Wildlife Carvings</image:title>
+      <image:caption>Handcrafted Solid Teakwood Wildlife Artistry</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/hero_collectibles.jpg</image:loc>
+      <image:title>Sacred Collectibles — Ashoka Stambh Lion Capital</image:title>
+      <image:caption>Handcrafted National Heritage Emblems</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Complete Mastercraft Lookbook & Catalog -->
+  <url>
+    <loc>https://madhurihandicrafts.com/catalog.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/products/adiyogi.jpg</image:loc>
+      <image:title>Adiyogi Shiva Handcrafted Wooden Bust</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/products/balaji_12_inch.jpg</image:loc>
+      <image:title>Tirupati Balaji Sacred Idol</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/products/meditation_hanuman_12_inch_teakwood.jpg</image:loc>
+      <image:title>Meditation Hanuman Ji in Teakwood</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/products/peacock_ganpati.jpg</image:loc>
+      <image:title>Peacock Prabhavali Ganesha</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/products/seven_horses_7_horse_teakwood.jpg</image:loc>
+      <image:title>Surya 7 Horses Sacred Vastu Relief</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://madhurihandicrafts.com/images/products/ashoka_stambh.jpg</image:loc>
+      <image:title>Ashoka Stambh 4 Lions Capital</image:title>
+    </image:image>
+  </url>
+
+</urlset>

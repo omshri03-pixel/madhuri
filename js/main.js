@@ -294,10 +294,14 @@ function initShareFeatures() {
 
   shareBtn.addEventListener('click', async (e) => {
     e.preventDefault();
+    const shareUrl = window.location.protocol.startsWith('http') && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('127.0.0.1')
+      ? window.location.href
+      : 'https://madhurihandicrafts.com/';
+
     const shareData = {
-      title: 'Madhuri Handicrafts — Luxury Indian Artisanal Catalogue',
-      text: 'Explore the 2026 Curated Brass, Bronze & Hand-Carved Teakwood Collection by Madhuri Handicrafts.',
-      url: window.location.href
+      title: 'Madhuri Handicrafts — Timeless Indian Brass, Wood & Spiritual Artistry',
+      text: 'Explore handcrafted teakwood deities, temple architecture, brass idols & heirloom collectibles by Madhuri Handicrafts (Est. 1983).',
+      url: shareUrl
     };
 
     if (navigator.share) {
@@ -307,11 +311,11 @@ function initShareFeatures() {
         // User cancelled or share failed
       }
     } else {
-      // Fallback: copy to clipboard
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        showToast('Link copied to clipboard!');
+      // Fallback: copy official domain to clipboard
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        showToast('Official Link Copied: ' + shareUrl);
       }).catch(() => {
-        showToast('Website link: ' + window.location.href);
+        showToast('Official Store: https://madhurihandicrafts.com/');
       });
     }
   });

@@ -937,6 +937,91 @@ button {
   width: 100%;
 }
 
+/* Full-Width Luxury Official Website Flagship Card (madhurihandicrafts.com) */
+.tile.website-flagship-card {
+  width: 100%;
+  min-height: clamp(210px, 28vh, 290px);
+  border: 1px solid rgba(217, 173, 109, 0.45);
+  background: radial-gradient(ellipse 90% 70% at 15% 50%, rgba(217, 173, 109, 0.22), transparent 75%), var(--surface-card);
+  box-shadow: 0 20px 48px -14px rgba(0, 0, 0, 0.8), 0 0 30px -6px rgba(217, 173, 109, 0.22);
+}
+
+.tile.website-flagship-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+  box-shadow: 0 28px 60px -16px rgba(0, 0, 0, 0.92), 0 0 42px -4px rgba(217, 173, 109, 0.45);
+}
+
+.tile.website-flagship-card .tile-scrim {
+  background: linear-gradient(105deg, rgba(8, 7, 5, 0.96) 0%, rgba(8, 7, 5, 0.80) 45%, rgba(8, 7, 5, 0.35) 85%, rgba(8, 7, 5, 0.15) 100%);
+}
+
+.tile.website-flagship-card .tile-content {
+  max-width: 680px;
+  gap: 10px;
+}
+
+.website-gold-chip {
+  background: rgba(217, 173, 109, 0.25) !important;
+  color: var(--gold-light) !important;
+  border: 1px solid var(--gold) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.10em !important;
+}
+
+.website-card-action-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.website-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(14px, 1.8vw, 17px);
+  letter-spacing: 0.02em;
+  color: var(--black);
+  background: linear-gradient(135deg, #fcedc9 0%, var(--gold) 45%, var(--bronze) 100%);
+  padding: 13px 28px;
+  border-radius: 100px;
+  box-shadow: 0 10px 26px -8px rgba(217, 173, 109, 0.75), 0 0 16px rgba(217, 173, 109, 0.35);
+  transition: all 0.35s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.tile.website-flagship-card:hover .website-card-btn {
+  transform: translateX(4px);
+  box-shadow: 0 14px 34px -8px rgba(217, 173, 109, 0.95), 0 0 24px rgba(217, 173, 109, 0.5);
+}
+
+.website-card-btn svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+.website-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--ivory-dim);
+  font-weight: 500;
+}
+
+.website-trust-badge svg {
+  width: 14px;
+  height: 14px;
+  color: var(--gold);
+}
+
 /* Full-Width Luxury Etsy Flagship Card */
 .tile.etsy-flagship-card {
   width: 100%;
@@ -2244,7 +2329,7 @@ button {
   }
 
   /* 3 Masterpiece Showcase Cards: Properly BADE (large, tall & spacious) with full clear imagery */
-  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) {
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.website-flagship-card):not(.hub-social-matrix) {
     border-radius: 20px !important;
     border: 1px solid rgba(217, 173, 109, 0.40) !important;
     background: #0f0d0a !important;
@@ -2255,28 +2340,28 @@ button {
     min-height: clamp(235px, 35vh, 285px) !important;
   }
 
-  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) .tile-content {
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.website-flagship-card):not(.hub-social-matrix) .tile-content {
     padding: 18px 20px !important;
     gap: 5px !important;
     max-width: 90% !important;
     z-index: 4 !important;
   }
 
-  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) .tile-kicker {
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.website-flagship-card):not(.hub-social-matrix) .tile-kicker {
     font-size: 9px !important;
     letter-spacing: 0.18em !important;
     color: var(--gold-light) !important;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95);
   }
 
-  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) .tile-title {
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.website-flagship-card):not(.hub-social-matrix) .tile-title {
     font-size: 21px !important;
     line-height: 1.15 !important;
     color: #ffffff !important;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
   }
 
-  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) .tile-meta {
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.website-flagship-card):not(.hub-social-matrix) .tile-meta {
     font-size: 11.5px !important;
     line-height: 1.35 !important;
     color: #e5dac9 !important;
@@ -2285,7 +2370,7 @@ button {
     display: block !important;
   }
 
-  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.hub-social-matrix) .tile-arrow {
+  .hub-cards-grid > .tile:not(.etsy-flagship-card):not(.website-flagship-card):not(.hub-social-matrix) .tile-arrow {
     display: none !important;
   }
 
@@ -2299,6 +2384,27 @@ button {
     border: 1px solid rgba(217, 173, 109, 0.5) !important;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7) !important;
     backdrop-filter: blur(8px) !important;
+  }
+
+  /* Flagship Website Card on Mobile */
+  .hub-cards-grid > .tile.website-flagship-card {
+    border-radius: 16px !important;
+    border: 1px solid rgba(217, 173, 109, 0.35) !important;
+    min-height: 185px !important;
+    box-shadow: 
+      0 14px 34px -8px rgba(0, 0, 0, 0.85),
+      0 0 18px rgba(217, 173, 109, 0.12),
+      inset 0 1px 1.5px rgba(255, 255, 255, 0.28) !important;
+  }
+
+  .hub-cards-grid > .tile.website-flagship-card .tile-content {
+    padding: 16px 14px !important;
+    gap: 6px !important;
+  }
+
+  .hub-cards-grid > .tile.website-flagship-card .website-card-btn {
+    padding: 10px 20px !important;
+    font-size: 13.5px !important;
   }
 
   /* Flagship Etsy Card on Mobile */
